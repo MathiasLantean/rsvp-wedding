@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Terraform (global safe)
+**/.terraform/
+**/.terraform.lock.hcl
+
+# Archives
+*.zip

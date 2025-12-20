@@ -1,0 +1,68 @@
+# --------------------
+# Python
+# --------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# --------------------
+# Dependency / build artifacts
+# --------------------
+build/
+dist/
+*.egg-info/
+lambda.zip
+
+# uv
+.uv/
+uv-cache/
+
+# --------------------
+# Testing
+# --------------------
+.coverage.*
+coverage.xml
+
+# --------------------
+# OS / Editor
+# --------------------
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# --------------------
+# Terraform
+# --------------------
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/crash.log
+
+# If you use multiple envs
+terraform/*.tfstate
+terraform/*.tfstate.*
+
+# --------------------
+# Docker
+# --------------------
+*.log
+docker-compose.override.yml
+
+# --------------------
+# AWS / Secrets
+# --------------------
+.env
+.env.*
+.aws/
