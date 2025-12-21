@@ -22,11 +22,16 @@ def create_guest(phone: str, guests: List[Guest]):
     table.put_item(Item=item)
     return item
 
-def confirm_attendance(phone: str, confirmed: int):
+def confirm_attendance(phone: str, guests: list[Guest], message: str | None):
     response = table.update_item(
         Key={"phone": phone},
-        UpdateExpression="SET confirmed = :c",
-        ExpressionAttributeValues={":c": confirmed},
+        UpdateExpression="SET guests = :g, message = :m",
+        ExpressionAttributeValues={
+            ":g": [guest.model_dump() for guest in guests],
+            ":m": message,
+        },
         ReturnValues="ALL_NEW",
     )
+
     return response.get("Attributes")
+
