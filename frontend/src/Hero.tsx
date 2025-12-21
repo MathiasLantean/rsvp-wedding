@@ -1,21 +1,23 @@
 import { useEffect, useRef } from 'react';
 import RSVP from './components/RSVP';
 
-interface HeroProps {
-  imageMobile: string;
-  imageDesktop: string;
-}
+import mobileHero from './assets/hero-mobile.jpg';
+// import desktopHero from './assets/hero-desktop.jpg';
+import desktopHero2 from './assets/hero-desktop-2.png';
+import desktopHero3 from './assets/hero-desktop-3.png';
+// import desktopHero4 from './assets/hero-desktop-4.png';
 
 interface SectionData {
+  backgroundColor?: any;
   id: string;
   title: string;
   subtitle?: string;
   content: string;
-  backgroundImage: string;
+  backgroundImage?: string;
   overlay?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ imageMobile, imageDesktop }) => {
+const Hero: React.FC = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   // Define sections with different background images
@@ -25,29 +27,32 @@ const Hero: React.FC<HeroProps> = ({ imageMobile, imageDesktop }) => {
       title: 'Caro & Mathi',
       subtitle: '¡Nos casamos!',
       content: '28 de marzo, 2026 — Montevideo, Uruguay',
-      backgroundImage: imageDesktop,
+      backgroundImage: desktopHero3,
       overlay: 'bg-black/40',
-    },
-    {
-      id: 'RSVP',
-      title: 'RSVP',
-      content: 'Confirma tu asistencia',
-      backgroundImage: imageMobile,
-      overlay: 'bg-black/50',
-    },
-    {
-      id: 'story',
-      title: 'Nuestra Historia',
-      content: 'Dos almas que se encontraron y decidieron unirse para siempre',
-      backgroundImage: imageDesktop,
-      overlay: 'bg-black/45',
     },
     {
       id: 'celebration',
       title: 'Celebración',
       content: 'Únete a nosotros en este día inolvidable',
-      backgroundImage: imageMobile,
+      backgroundColor:
+        'linear-gradient(to bottom, #F6C1A6 0%, #E8A598 50%, #DFA4A4 100%)',
       overlay: 'bg-black/40',
+    },
+    {
+      id: 'story',
+      title: 'Nuestra Historia',
+      content: 'Dos almas que se encontraron y decidieron unirse para siempre',
+      backgroundImage: desktopHero2,
+      overlay: 'bg-black/45',
+    },
+
+    {
+      id: 'RSVP',
+      title: 'RSVP',
+      content: 'Por favor confirma tu asistencia antes del 28 de febrero',
+      backgroundColor:
+        'linear-gradient(to bottom, #F6C1A6 0%, #E8A598 50%, #DFA4A4 100%)',
+      overlay: 'bg-black/35',
     },
   ];
 
@@ -85,16 +90,24 @@ const Hero: React.FC<HeroProps> = ({ imageMobile, imageDesktop }) => {
           ref={(el) => {
             sectionsRef.current[index] = el;
           }}
-          className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden"
+          className={`relative w-full flex items-center justify-center text-center overflow-hidden
+      ${section.id === 'RSVP' ? 'min-h-[80vh]' : 'h-screen'}
+    `}
         >
           {/* Parallax Background */}
           <div
             className="parallax-bg absolute inset-0 w-full h-[120%] will-change-transform"
-            style={{
-              backgroundImage: `url(${section.backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            style={
+              section.backgroundImage
+                ? {
+                    backgroundImage: `url(${section.backgroundImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }
+                : {
+                    background: section.backgroundColor,
+                  }
+            }
           />
 
           {/* Overlay */}
@@ -106,7 +119,10 @@ const Hero: React.FC<HeroProps> = ({ imageMobile, imageDesktop }) => {
           <div className="relative z-10 px-6 sm:px-12 max-w-4xl mx-auto">
             {section.id === 'hero' ? (
               <>
-                <h1 className="text-5xl sm:text-6xl md:text-7xl mb-4 font-cursive text-gold animate-fade-in">
+                <h1
+                  className="text-5xl sm:text-6xl md:text-7xl mb-4 font-cursive text-gold animate-fade-in"
+                  style={{ color: 'var(--color-title-primary)' }}
+                >
                   {section.title}
                 </h1>
                 <p className="text-xl sm:text-2xl md:text-3xl opacity-90 mb-6 text-white">
@@ -130,7 +146,7 @@ const Hero: React.FC<HeroProps> = ({ imageMobile, imageDesktop }) => {
                 <p className="text-lg sm:text-xl mb-8 text-white/90">
                   {section.content}
                 </p>
-                <div className="flex justify-center">
+                <div className="flex justify-center mt-12">
                   <RSVP />
                 </div>
               </>
