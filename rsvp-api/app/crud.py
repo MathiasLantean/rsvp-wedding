@@ -1,5 +1,7 @@
-from boto3.dynamodb.conditions import Key
+from typing import List
+
 from .db import table
+from .schemas import Guest
 
 
 def get_guest_by_phone(phone: str):
@@ -11,11 +13,11 @@ def list_guests():
     response = table.scan()
     return response.get("Items", [])
 
-def create_guest(phone: str, name: str, invited_total: int):
+def create_guest(phone: str, guests: List[Guest]):
     item = {
         "phone": phone,
-        "name": name,
-        "invited_total": invited_total,
+        "guests": [guest.model_dump() for guest in guests],
+        "message": None
     }
     table.put_item(Item=item)
     return item
