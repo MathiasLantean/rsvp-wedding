@@ -1,9 +1,18 @@
 from fastapi import FastAPI, HTTPException, status
+from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 from . import schemas, crud
 
 
 app = FastAPI(title="Wedding RSVP API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_credentials=False,
+)
 
 
 @app.get("/rsvp/{phone}", response_model=schemas.GuestGroup)
