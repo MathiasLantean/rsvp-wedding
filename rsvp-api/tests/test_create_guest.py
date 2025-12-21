@@ -5,8 +5,7 @@ def test_create_guest_conflict_prod(client, cleanup_guest):
 
     payload = {
         "phone": phone,
-        "name": "Duplicate Guest",
-        "invited_total": 1,
+        "guest_names": ["Mathias Lantean", "Carolina Reolon"],
     }
 
     first = client.post("/guests", json=payload)
