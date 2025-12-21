@@ -6,14 +6,12 @@ def test_list_guests_prod(client, cleanup_guest):
 
     payload_1 = {
         "phone": phone_1,
-        "name": "Test Guest One",
-        "invited_total": 2,
+        "guest_names": ["Mathias Lantean", "Carolina Reolon"],
     }
 
     payload_2 = {
         "phone": phone_2,
-        "name": "Test Guest Two",
-        "invited_total": 3,
+        "guest_names": ["Karina Lantean", "Martin Balza"],
     }
 
     r1 = client.post("/guests", json=payload_1)
