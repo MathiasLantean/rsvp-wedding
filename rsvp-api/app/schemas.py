@@ -7,10 +7,6 @@ class Guest(BaseModel):
     attending: Optional[bool] = None
     notes: Optional[str] = None
 
-class GuestGroup(BaseModel):
-    phone: str = Field(..., min_length=1)
-    guests: List[Guest]
-
 class CreateGuestRequest(BaseModel):
     phone: str = Field(..., min_length=1)
     guest_names: List[str] = Field(..., min_length=1)
