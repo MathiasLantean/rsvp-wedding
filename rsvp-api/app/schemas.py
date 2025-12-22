@@ -19,3 +19,8 @@ class ConfirmAttendanceRequest(BaseModel):
     phone: str = Field(..., min_length=1)
     guests: List[Guest]
     message: Optional[str] = None
+
+class GuestGroupResponse(BaseModel):
+    phone: str = Field(..., min_length=1)
+    guests: List[Guest]
+    message: Optional[str] = None
