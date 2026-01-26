@@ -15,7 +15,7 @@ app.add_middleware(
 )
 
 
-@app.get("/rsvp/{phone}", response_model=schemas.GuestGroup)
+@app.get("/rsvp/{phone}", response_model=schemas.GuestGroupResponse)
 def get_guest(phone: str):
     guest = crud.get_guest_by_phone(phone)
     if not guest:
@@ -41,7 +41,7 @@ def confirm_attendance(payload: schemas.ConfirmAttendanceRequest):
     return crud.confirm_attendance(payload.phone, payload.guests, payload.message)
 
 
-@app.post("/guests", response_model=schemas.GuestGroup)
+@app.post("/guests", response_model=schemas.GuestGroupResponse)
 def add_guest(payload: schemas.CreateGuestRequest):
     existing = crud.get_guest_by_phone(payload.phone)
     if existing:
@@ -57,7 +57,7 @@ def add_guest(payload: schemas.CreateGuestRequest):
         guests=guests,
     )
 
-@app.get("/guests", response_model=list[schemas.GuestGroup])
+@app.get("/guests", response_model=list[schemas.GuestGroupResponse])
 def list_guests():
     return crud.list_guests()
 
