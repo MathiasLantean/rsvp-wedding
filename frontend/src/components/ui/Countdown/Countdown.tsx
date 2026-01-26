@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './Countdown.css';
 
 interface CountdownProps {
   targetDate: Date;
@@ -37,18 +38,22 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="mt-6 flex justify-center gap-4 text-xl sm:text-2xl font-display text-gold">
-      <div>
-        <span className="font-semibold">{timeLeft.days}</span> días
+    <div className="countdown-container">
+      <div className="countdown-number-container">
+        <span className="countdown-numbers">{timeLeft.days}</span> 
+        <span className="countdown-numbers-text"> días </span>
       </div>
-      <div>
-        <span className="font-semibold">{timeLeft.hours}</span> hrs
+      <div className="countdown-number-container">
+        <span className="countdown-numbers">{timeLeft.hours}</span>
+        <span className="countdown-numbers-text"> horas </span>
       </div>
-      <div>
-        <span className="font-semibold">{timeLeft.minutes}</span> min
+      <div className="countdown-number-container">
+        <span className="countdown-numbers">{timeLeft.minutes}</span> 
+        <span className="countdown-numbers-text"> minutos </span>
       </div>
-      <div>
-        <span className="font-semibold">{timeLeft.seconds}</span> s
+      <div className="countdown-number-container">
+        <span className="countdown-numbers">{timeLeft.seconds}</span>
+        <span className="countdown-numbers-text"> segundos </span>
       </div>
     </div>
   );

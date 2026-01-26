@@ -1,0 +1,157 @@
+.regalos-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.regalos-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #F6C1A6 0%, #E8A598 50%, #DFA4A4 100%);
+}
+
+.regalos-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.regalos-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.regalos-title {
+  font-size: 3rem;
+  font-weight: 400;
+  font-family: 'Great Vibes', cursive;
+  color: var(--color-gold);
+  margin-bottom: 2.5rem;
+}
+
+.regalos-main-text {
+  margin-bottom: 3rem;
+}
+
+.regalos-intro {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.5rem;
+  font-family: 'Cardo', serif;
+}
+
+.regalos-secondary {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.25rem;
+  font-family: 'Cardo', serif;
+}
+
+.regalos-accounts {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.regalos-accounts-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  font-family: 'Cardo', serif;
+}
+
+.regalos-accounts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.regalos-account-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.regalos-account-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+  font-family: 'Cardo', serif;
+}
+
+.regalos-account-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.regalos-account-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.regalos-account-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  font-family: 'Cardo', serif;
+}
+
+.regalos-account-value {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  font-family: 'Cardo', serif;
+  min-height: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.regalos-thanks {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-top: 2.5rem;
+  font-family: 'Cardo', serif;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .regalos-title {
+    font-size: 2.5rem;
+  }
+
+  .regalos-intro {
+    font-size: 1.1rem;
+  }
+
+  .regalos-secondary {
+    font-size: 1rem;
+  }
+
+  .regalos-accounts-container {
+    grid-template-columns: 1fr;
+  }
+
+  .regalos-content {
+    padding: 3rem 1rem;
+  }
+}

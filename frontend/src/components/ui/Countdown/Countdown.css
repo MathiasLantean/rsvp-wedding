@@ -1,0 +1,32 @@
+.countdown-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20%;
+}
+
+.countdown-numbers {
+  /* width: 100px;  */
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Alex Brush", sans-serif;
+  text-align: center;
+}
+
+.countdown-number-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-numbers-text {
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 2em;
+  letter-spacing: 1px;
+  color: #fff;
+  font-family: "Cardo", sans-serif;
+}
