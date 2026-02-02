@@ -4,9 +4,9 @@ import StorySection from "./components/Sections/StorySection/StorySection";
 import RSVPSection from "./components/Sections/RSVPSection/RSVPSection";
 import CountdownSection from "./components/Sections/CountdownSection/CountdownSection";
 import Ubicacion from "./components/Sections/Ubicacion/Ubicacion";
-import Regalos from "./components/Sections/Regalos/Regalos";
 import Footer from "./components/Sections/Footer/Footer";
 import CelebrationSection from "./components/Sections/CelebrationSection/CelebrationSection";
+import Gift from "./components/Sections/Gift/Gift";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
       <CelebrationSection />
       <Ubicacion />
       <StorySection ref={storyRef} />
-      <Regalos />
+      <Gift />
       <Footer />
     </div>
   );

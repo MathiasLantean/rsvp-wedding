@@ -1,0 +1,100 @@
+.gift-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  font-family: var(--font-cursive);
+}
+
+.gift-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+}
+
+.gift-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.gift-content {
+  position: relative;
+  z-index: 1;
+
+  background-image: url("/src/assets/gift-bg.png");
+  background-repeat: no-repeat;
+
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 0;
+  gap: 24px;
+}
+
+.gift-title {
+  font-size: 5rem;
+  color: var(--wedding-navy-dark);
+}
+
+.gift-main-text {
+  font-family: var(--font-display);
+  color: var(--wedding-navy-dark);
+  max-width: 52vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  gap: 24px;
+}
+
+.gift-intro-text {
+  margin-top: 16px;
+}
+
+.gift-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  font-family: var(--font-display);
+  color: var(--wedding-navy-dark);
+  justify-content: center;
+}
+
+.gift-item-container {
+  border: 3px solid var(--wedding-navy-dark);
+  padding: 24px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 25%;
+}
+
+.gift-item-title {
+  font-weight: 700;
+}
+
+.gift-item-value {
+}
+
+.gift-item-value-container {
+  display: flex;
+  gap: 4px;
+}
+
+.gift-thanks-text {
+  padding-top: 16px;
+  font-size: 2rem;
+  font-family: var(--font-cursive);
+  color: var(--wedding-navy-dark);
+}
+
+@media (max-width: 768px) {
+}
