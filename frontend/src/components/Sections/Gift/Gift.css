@@ -99,4 +99,31 @@
 }
 
 @media (max-width: 768px) {
+  .gift-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gift-item-container {
+    width: 80%;
+    text-align: center;
+  }
+
+  .gift-item-value-container {
+    justify-content: center;
+  }
+
+  .gift-thanks-text {
+    font-size: 1.5rem;
+  }
+
+  .gift-main-text {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 24px;
+  }
 }
