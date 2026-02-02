@@ -1,5 +1,5 @@
-import { forwardRef } from 'react';
-import desktopHero2 from '../../assets/hero-desktop-2.png';
+import {forwardRef} from "react";
+import desktopHero2 from "../../../assets/hero-desktop-2.png";
 
 interface StorySectionProps {
   // Add any props if needed in the future
@@ -15,8 +15,8 @@ const StorySection = forwardRef<HTMLElement, StorySectionProps>((_, ref) => {
         className="parallax-bg absolute inset-0 w-full h-[120%] will-change-transform"
         style={{
           backgroundImage: `url(${desktopHero2})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
       <div className="absolute inset-0 bg-black/45" />
@@ -34,7 +34,6 @@ const StorySection = forwardRef<HTMLElement, StorySectionProps>((_, ref) => {
   );
 });
 
-StorySection.displayName = 'StorySection';
+StorySection.displayName = "StorySection";
 
 export default StorySection;
-

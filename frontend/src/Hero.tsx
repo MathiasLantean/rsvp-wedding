@@ -1,12 +1,12 @@
-import { useEffect, useRef } from 'react';
-import HeroSection from './components/Sections/HeroSection';
-import CelebrationSection from './components/Sections/CelebrationSection';
-import StorySection from './components/Sections/StorySection';
-import RSVPSection from './components/Sections/RSVPSection';
-import CountdownSection from './components/Sections/CountdownSection/CountdownSection';
-import Ubicacion from './components/Sections/Ubicacion/Ubicacion';
-import Regalos from './components/Sections/Regalos/Regalos';
-import Footer from './components/Sections/Footer/Footer';
+import {useEffect, useRef} from "react";
+import HeroSection from "./components/Sections/HeroSection/HeroSection";
+import StorySection from "./components/Sections/StorySection/StorySection";
+import RSVPSection from "./components/Sections/RSVPSection/RSVPSection";
+import CountdownSection from "./components/Sections/CountdownSection/CountdownSection";
+import Ubicacion from "./components/Sections/Ubicacion/Ubicacion";
+import Regalos from "./components/Sections/Regalos/Regalos";
+import Footer from "./components/Sections/Footer/Footer";
+import CelebrationSection from "./components/Sections/CelebrationSection/CelebrationSection";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         const scrolled = window.pageYOffset;
         const sectionTop = rect.top + scrolled;
 
-        const bgElement = section.querySelector('.parallax-bg') as HTMLElement;
+        const bgElement = section.querySelector(".parallax-bg") as HTMLElement;
         if (bgElement) {
           const rate = (scrolled - sectionTop) * 0.3;
           bgElement.style.transform = `translateY(${rate}px)`;
@@ -29,19 +29,19 @@ const Hero: React.FC = () => {
       });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, {passive: true});
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="relative w-full">
       <HeroSection ref={heroRef} />
       <CountdownSection />
+      <RSVPSection />
       <CelebrationSection />
       <Ubicacion />
       <StorySection ref={storyRef} />
-      <RSVPSection />
       <Regalos />
       <Footer />
     </div>
