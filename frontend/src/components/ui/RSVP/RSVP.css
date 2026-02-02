@@ -60,32 +60,8 @@
 }
 
 /* === INPUTS === */
-.rsvp-input,
-.rsvp-textarea {
-  background-color: white;
-  border: 1px solid #dcd9d9;
-  border-radius: 0.5rem;
-  padding: 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 400;
-}
-
-.rsvp-input:focus,
-.rsvp-textarea:focus {
-  outline: none;
-  border-color: var(--wedding-rose-light);
-}
-
 .rsvp-textarea {
   resize: none;
-}
-
-.rsvp-guest-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--wedding-navy-dark);
-  margin-bottom: 8px;
-  text-align: left;
 }
 
 /* === GUESTS === */
@@ -107,6 +83,14 @@
   color: var(--wedding-navy-dark);
   font-size: 0.875rem;
   font-weight: 700;
+  text-align: left;
+}
+
+.rsvp-guest-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--wedding-navy-dark);
+  margin-bottom: 8px;
   text-align: left;
 }
 

@@ -25,8 +25,13 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           "flex h-10 w-full rounded-md px-3 py-2 pr-10 text-base md:text-sm",
           "bg-white text-[var(--wedding-navy-dark)]",
           "border border-gray-300",
-          "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+          "ring-offset-background",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+          "focus-visible:ring-[var(--wedding-navy-light)]",
+          "focus:border-[var(--wedding-navy-light)]",
+          "active:border-[var(--wedding-navy-light)]",
           "disabled:cursor-not-allowed disabled:opacity-50",
+          "hover:border-[var(--wedding-navy-light)]",
           className,
         )}
         onChange={(e) => onValueChange?.(e.target.value)}

@@ -212,6 +212,7 @@ const RSVP: React.FC = () => {
                             updateGuest(guest.name, {notes: value});
                           }
                         }}
+                        disabled={guest.attending === false}
                       />
                     </div>
                     {guest.notes?.startsWith("otra:") && (
