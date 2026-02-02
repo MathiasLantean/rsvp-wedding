@@ -165,8 +165,21 @@
   cursor: pointer;
 }
 
-.rsvp-button-submit:hover {
+.rsvp-button-submit:hover,
+.rsvp-button-submit-number:hover {
   background-color: var(--wedding-navy-dark);
+}
+
+.rsvp-button-submit-number {
+  padding: 0.5rem 2rem;
+  border-radius: 9999px;
+  background-color: var(--wedding-navy-light);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: var(--font-display);
+  border: none;
+  cursor: pointer;
 }
 
 /* === SUCCESS === */

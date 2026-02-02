@@ -1,5 +1,4 @@
 import * as React from "react";
-import {Search} from "lucide-react";
 
 import {cn} from "../../lib/utils";
 
@@ -53,9 +52,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onClick={handleSearchClick}
             className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-foreground hover:text-foreground/80 transition-colors"
             aria-label="Search"
-          >
-            <Search className="h-4 w-4" />
-          </button>
+          />
         </div>
       );
     }

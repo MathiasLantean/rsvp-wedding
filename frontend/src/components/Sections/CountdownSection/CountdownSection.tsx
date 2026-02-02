@@ -5,10 +5,8 @@ const CountdownSection: React.FC = () => {
   return (
     <div className="countdown-section">
       <div className="countdown-container">
-        <h1 className="countdown-section-title font-cursive">
-          Nuestro casamiento
-        </h1>
-        <h2 className="countdown-section-subtitle font-display">
+        <h1 className="countdown-section-title">Nuestro casamiento</h1>
+        <h2 className="countdown-section-subtitle">
           FALTA POCO PARA EL GRAN DIA
         </h2>
       </div>

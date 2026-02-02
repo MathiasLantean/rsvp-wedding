@@ -30,23 +30,35 @@
   font-size: 5.75rem;
   color: var(--wedding-rose-gold);
   line-height: normal;
+  font-family: var(--font-cursive);
 }
 
 .countdown-section-subtitle {
   font-size: 1rem;
   color: var(--wedding-navy-dark);
   letter-spacing: 5px;
+  font-family: var(--font-display);
 }
 
 @media (max-width: 768px) {
   .countdown-section {
-    height: 500px;
+    height: 700px;
 
     background-image: url("../../../assets/countdown_section_mobile.png");
     background-position: center top;
-    background-size: contain;
+    background-size: cover;
 
     flex-direction: column;
     gap: 24px;
+  }
+
+  .countdown-section-title {
+    font-size: 6rem;
+    line-height: 0.75;
+  }
+
+  .countdown-section-subtitle {
+    font-size: 1 em;
+    letter-spacing: 1px;
   }
 }

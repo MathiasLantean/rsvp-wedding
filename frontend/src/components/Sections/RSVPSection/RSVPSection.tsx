@@ -3,7 +3,7 @@ import "./RSVPSection.css";
 
 const RSVPSection: React.FC = () => {
   return (
-    <section className="rsvp">
+    <section id="rsvp" className="rsvp">
       <div className="rsvp-bg" />
       <div className="rsvp-overlay" />
       <div className="rsvp-content">

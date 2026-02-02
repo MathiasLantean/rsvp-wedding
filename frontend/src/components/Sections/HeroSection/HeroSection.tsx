@@ -7,6 +7,10 @@ interface HeroSectionProps {
 }
 
 const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
+  const scrollToRSVP = () => {
+    document.getElementById("rsvp")?.scrollIntoView({behavior: "smooth"});
+  };
+
   return (
     <section ref={ref} className="hero">
       <div
@@ -21,7 +25,9 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
           <p className="hero-date">28.03.2026</p>
           <p className="hero-location">Montevideo, Uruguay</p>
         </div>
-        <button className="hero-button">Confirmá tu asistencia</button>
+        <button className="hero-button" onClick={scrollToRSVP}>
+          Confirmá tu asistencia
+        </button>
       </div>
       <div className="hero-scroll">
         <div className="hero-scroll-mouse">

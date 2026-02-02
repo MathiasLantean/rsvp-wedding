@@ -19,12 +19,17 @@ const RSVP: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage(null);
     try {
       setIsLoading(true);
       const response = await submitRSVP(formData);
       console.log("RSVP submitted successfully:", response);
+      setSubmitted(true);
     } catch (error) {
       console.error("Error submitting RSVP", error);
+      setErrorMessage(
+        "Hubo un problema al enviar tu confirmación. Intentá nuevamente.",
+      );
     } finally {
       setIsLoading(false);
       setSubmitted(true);
@@ -33,6 +38,7 @@ const RSVP: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const attendingCount = formData.guests.filter(
     (guest) => guest.attending,
@@ -55,6 +61,7 @@ const RSVP: React.FC = () => {
 
     try {
       setIsLoading(true);
+      setErrorMessage(null);
       const res = await getGuestInfo(cellphone);
 
       setFormData((prev) => ({
@@ -64,6 +71,7 @@ const RSVP: React.FC = () => {
       }));
     } catch (error) {
       console.error("Error searching guest info", error);
+      setErrorMessage("No encontramos una invitación asociada a ese número.");
     } finally {
       setIsLoading(false);
     }
@@ -126,11 +134,18 @@ const RSVP: React.FC = () => {
               variant="search"
               value={formData.phone}
               disabled={isLoading}
-              onChange={(e) => handleFieldChange("phone", e.target.value)}
+              onChange={(e) => {
+                setErrorMessage(null);
+                handleFieldChange("phone", e.target.value);
+              }}
               onSearch={searchGuestInfo}
               placeholder="Ej. 0991234567"
               className="rsvp-input"
             />
+            {errorMessage && <p className="rsvp-error-text">{errorMessage}</p>}
+            <button type="submit" className="rsvp-button-submit-number">
+              Listo
+            </button>
           </div>
 
           {/* Guests */}

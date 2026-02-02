@@ -68,3 +68,7 @@ html {
   border-color: var(--wedding-rose-dark);
   transform: translateY(-2px);
 }
+
+html {
+  scroll-behavior: smooth;
+}
