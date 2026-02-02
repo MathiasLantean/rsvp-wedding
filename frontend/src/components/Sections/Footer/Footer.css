@@ -1,6 +1,6 @@
 .footer {
   position: relative;
-  background-color: var(--wedding-navy-light);
+  background-color: var(--wedding-navy-dark);
   height: 106px;
   display: flex;
   flex-direction: row;
@@ -9,6 +9,7 @@
   font-family: var(--font-display);
   color: white;
   padding-inline: 48px;
+  font-size: 0.875rem;
 }
 
 .footer-content {
@@ -28,11 +29,13 @@
 
 .footer-contact-caro {
   letter-spacing: 2px;
+  line-height: normal;
 }
 
 .footer-content-mathi {
   text-align: end;
   letter-spacing: 2px;
+  line-height: normal;
 }
 
 /* Responsive */

@@ -88,26 +88,12 @@ const RSVP: React.FC = () => {
     }));
   };
 
-  // Clean after fix problem
-  const mockGuests: guestType[] = [
-    {
-      name: "Carolina López",
-      attending: true,
-      notes: null,
-    },
-    // {
-    //   name: "Matías Rodríguez",
-    //   attending: false,
-    //   notes: null,
-    // },
-  ];
-
   useEffect(() => {
     setFormData((prev) => ({
       ...prev,
       guests: [
         {
-          name: "Carolina López",
+          name: "Pam Auro",
           attending: true,
           notes: null,
         },
@@ -230,6 +216,7 @@ const RSVP: React.FC = () => {
                               notes: `otra: ${e.target.value}`,
                             })
                           }
+                          disabled={guest.attending === false}
                         />
                       </div>
                     )}
