@@ -102,6 +102,19 @@ const RSVP: React.FC = () => {
     // },
   ];
 
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      guests: [
+        {
+          name: "Carolina López",
+          attending: true,
+          notes: null,
+        },
+      ],
+    }));
+  }, []);
+
   return (
     <>
       {isLoading && (
@@ -136,12 +149,12 @@ const RSVP: React.FC = () => {
 
           {/* Guests */}
           {/* replace when fix is done */}
-          {mockGuests.length > 0 && (
+          {formData.guests.length > 0 && (
             <div>
               <h2 className="rsvp-guest-title">Confirmá tu asistencia</h2>
               <div className="rsvp-guests">
                 {/* replace when fix is done */}
-                {mockGuests.map((guest) => (
+                {formData.guests.map((guest) => (
                   <div key={guest.name} className="rsvp-guest-items">
                     <p className="rsvp-guest">{guest.name}</p>
                     <div className="rsvp-attendance-group">
@@ -201,24 +214,24 @@ const RSVP: React.FC = () => {
                         }}
                       />
                     </div>
-                    {/* {guest.notes?.startsWith("otra:") && ( */}
-                    <div className="rsvp-field">
-                      <Label htmlFor="" className="rsvp-label">
-                        Especificá tu restricción o preferencia
-                      </Label>
-                      <Textarea
-                        rows={3}
-                        className="rsvp-textarea"
-                        placeholder="Especificá tu restricción o preferencia"
-                        value={""}
-                        onChange={(e) =>
-                          updateGuest(guest.name, {
-                            notes: `otra: ${e.target.value}`,
-                          })
-                        }
-                      />
-                    </div>
-                    {/* )} */}
+                    {guest.notes?.startsWith("otra:") && (
+                      <div className="rsvp-field">
+                        <Label htmlFor="" className="rsvp-label">
+                          Especificá tu restricción o preferencia
+                        </Label>
+                        <Textarea
+                          rows={3}
+                          className="rsvp-textarea"
+                          placeholder="Especificá tu restricción o preferencia"
+                          value={""}
+                          onChange={(e) =>
+                            updateGuest(guest.name, {
+                              notes: `otra: ${e.target.value}`,
+                            })
+                          }
+                        />
+                      </div>
+                    )}
                     <div className="rsvp-field">
                       <Label htmlFor="message" className="rsvp-label">
                         Dejá un mensaje para los novios
