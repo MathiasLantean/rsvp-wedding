@@ -38,6 +38,22 @@
   line-height: normal;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
+  .footer {
+    background-color: var(--wedding-navy-dark);
+    height: auto;
+    padding: 8px;
+    font-size: 0.75rem;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-contact-caro {
+    text-align: center;
+  }
+
+  .footer-content-mathi {
+    text-align: center;
+  }
 }
