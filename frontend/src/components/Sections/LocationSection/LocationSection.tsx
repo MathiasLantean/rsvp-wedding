@@ -27,7 +27,7 @@ const LocationSection: React.FC = () => {
       </div>
       <div className="map-wrapper">
         <iframe
-          // className="ubicacion-iframe"
+          className="ubicacion-iframe"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1637.8215884355463!2d-56.37206572134811!3d-34.81491801703974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a1d0854166c1b5%3A0xe8a22c7a58378835!2sLos%20Tilos!5e0!3m2!1ses!2suy!4v1769240400447!5m2!1ses!2suy"
           width="100%"
           height="800px"

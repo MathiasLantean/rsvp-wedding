@@ -7,7 +7,7 @@ const CountdownSection: React.FC = () => {
       <div className="countdown-container">
         <h1 className="countdown-section-title">Nuestro casamiento</h1>
         <h2 className="countdown-section-subtitle">
-          FALTA POCO PARA EL GRAN DIA
+          FALTA POCO PARA EL GRAN DÍA
         </h2>
       </div>
       <div className="countdown-section-countdown">

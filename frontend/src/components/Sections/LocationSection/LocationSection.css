@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(139, 117, 122, 0.45); /* rosa viejo */
+  background: rgba(200, 168, 175, 0.45); /* rosa viejo */
   pointer-events: none; /* permite interactuar con el mapa */
   z-index: 2;
 }

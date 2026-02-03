@@ -1,0 +1,79 @@
+.celebration-section {
+  position: relative;
+  height: 660px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-image: url("/src/assets/dress-code-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.celebration-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.celebration-title {
+  font-family: var(--font-cursive);
+  font-size: 5rem;
+  line-height: normal;
+  color: var(--wedding-navy-dark);
+}
+
+.celebration-text {
+  font-size: 2rem;
+  font-family: var(--font-display);
+  color: var(--wedding-navy-light);
+  letter-spacing: 2px;
+}
+
+.celebration-text-info {
+  font-size: 1rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--wedding-navy-light);
+  letter-spacing: 2px;
+  width: 88vw;
+}
+
+.celebration-message {
+  font-size: 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--wedding-rose-dark);
+  letter-spacing: 2px;
+  padding: 40px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+  .celebration-section {
+    background-image: none;
+    background-color: var(--wedding-rose-gold);
+  }
+
+  .celebration-content {
+    padding: 0 2rem;
+    gap: 16px;
+  }
+
+  .celebration-title {
+    font-size: 3.75rem;
+  }
+
+  .celebration-text {
+    font-size: 1.5rem;
+  }
+
+  .celebration-text-info {
+    font-size: 1.125rem;
+    line-height: 20px;
+  }
+}
