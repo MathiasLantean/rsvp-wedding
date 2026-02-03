@@ -1,5 +1,4 @@
-import axios from 'axios';
-
+import axios from "axios";
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 // export const Api = {
@@ -19,13 +18,13 @@ type guestResponseType = {
 };
 
 export const getGuestInfo = async (
-  phone: string
+  phone: string,
 ): Promise<guestResponseType> => {
   try {
     const response = await axios.get(`${BASE_URL}/rsvp/${phone}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching guest info', error);
+    console.error("Error fetching guest info", error);
     throw error;
   }
 };
@@ -41,7 +40,7 @@ export const submitRSVP = async (rsvpData: submitRSVPType) => {
     const response = await axios.post(`${BASE_URL}/rsvp/confirm`, rsvpData);
     return response.data;
   } catch (error) {
-    console.error('Error submitting RSVP', error);
+    console.error("Error submitting RSVP", error);
     throw error;
   }
 };

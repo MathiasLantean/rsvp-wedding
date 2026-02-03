@@ -1,16 +1,24 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Fave";
+  src: url("/src/assets/fonts/Fave-ScriptBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
-  --font-display: 'Satoshi', 'sans-serif';
-  --font-cursive: 'Great Vibes', cursive;
+  --font-display: "Optima", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-cursive: "Fave", cursive;
 
   --color-navy: oklch(0.15 0.05 260);
-  --color-gold: oklch(0.85 0.18 97);
+  --color-gold: oklch(0.78 0.06 25);
 
   /* Wedding color palette */
-  --wedding-navy-dark: #181a26;
-  --wedding-navy-light: #333a54;
-  --wedding-rose-dark: #cb9c8c;
+  --wedding-navy-dark: #1a1a7b;
+  --wedding-navy-light: #6167b2;
+  --wedding-rose-dark: #fbb3a6;
   --wedding-rose-gold: #f1cdbf;
   --wedding-cream: #f4f3ef;
 
@@ -59,4 +67,8 @@ html {
   color: var(--wedding-rose-dark);
   border-color: var(--wedding-rose-dark);
   transform: translateY(-2px);
+}
+
+html {
+  scroll-behavior: smooth;
 }

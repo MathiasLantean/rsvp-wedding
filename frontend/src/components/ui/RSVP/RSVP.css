@@ -1,0 +1,206 @@
+/* === LOADING OVERLAY === */
+.rsvp-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 1rem;
+}
+
+.rsvp-loading-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rsvp-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 4px solid var(--wedding-rose-dark);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rsvp-loading-text {
+  font-size: 0.875rem;
+  color: var(--wedding-navy-dark);
+}
+
+/* === FORM === */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 400px;
+  margin-inline: auto;
+}
+
+.rsvp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rsvp-label {
+  color: var(--wedding-navy-dark);
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+/* === INPUTS === */
+.rsvp-textarea {
+  resize: none;
+}
+
+/* === GUESTS === */
+.rsvp-guests {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.rsvp-guest-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rsvp-guest {
+  color: var(--wedding-navy-dark);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.rsvp-guest-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--wedding-navy-dark);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+}
+
+/* === ATTENDANCE === */
+.rsvp-attendance-group {
+  display: flex;
+  gap: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.rsvp-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  /* color: var(--wedding-navy-dark); */
+}
+
+.rsvp-radio input {
+  accent-color: var(--wedding-navy-dark);
+  cursor: pointer;
+}
+
+.rsvp-radio-label {
+  user-select: none;
+  font-weight: 400;
+  accent-color: var(--wedding-navy-dark);
+  color: var(--wedding-navy-dark);
+}
+
+/* === BUTTONS === */
+.rsvp-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: end;
+  margin-top: 16px;
+}
+
+.rsvp-button {
+  padding: 0.5rem 2rem;
+  border-radius: 9999px;
+  background-color: var(--wedding-rose-light);
+  color: var(--wedding-navy-dark);
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: var(--font-display);
+  cursor: pointer;
+  border: 1px solid var(--wedding-rose-dark);
+}
+
+.rsvp-button:hover {
+  color: var(--wedding-navy-dark);
+  background-color: var(--wedding-rose-light);
+  border-color: var(--wedding-rose-light);
+  opacity: 50%;
+}
+
+.rsvp-button-submit {
+  padding: 0.5rem 2rem;
+  border-radius: 9999px;
+  background-color: var(--wedding-navy-light);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: var(--font-display);
+  border: none;
+  cursor: pointer;
+}
+
+.rsvp-button-submit:hover,
+.rsvp-button-submit-number:hover {
+  background-color: var(--wedding-navy-dark);
+}
+
+.rsvp-button-submit-number {
+  padding: 0.5rem 2rem;
+  border-radius: 9999px;
+  background-color: var(--wedding-navy-light);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: var(--font-display);
+  border: none;
+  cursor: pointer;
+}
+
+/* === SUCCESS === */
+
+.rsvp-success {
+  padding: 4rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rsvp-success-title {
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+  color: var(--wedding-rose-dark);
+}
+
+.rsvp-success-text {
+  font-size: 1.125rem;
+  max-width: 28rem;
+  margin: 0 auto;
+  color: var(--wedding-navy-dark);
+}

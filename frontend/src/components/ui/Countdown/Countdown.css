@@ -1,4 +1,9 @@
-.countdown-container{
+.countdown-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.countdown-container-date {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7,12 +12,10 @@
 }
 
 .countdown-numbers {
-  /* width: 100px;  */
   font-size: 4rem;
   font-weight: 700;
-  color: #fff;
-  font-family: "Alex Brush", sans-serif;
-  text-align: center;
+  color: var(--wedding-navy-dark);
+  line-height: normal;
 }
 
 .countdown-number-container {
@@ -23,10 +26,16 @@
 }
 
 .countdown-numbers-text {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-transform: uppercase;
-  line-height: 2em;
-  letter-spacing: 1px;
-  color: #fff;
-  font-family: "Cardo", sans-serif;
+  color: var(--wedding-navy-dark);
+}
+
+@media (max-width: 768px) {
+  .countdown-container-date {
+    gap: 10%;
+  }
+  .countdown-numbers {
+    font-size: 2rem;
+  }
 }
