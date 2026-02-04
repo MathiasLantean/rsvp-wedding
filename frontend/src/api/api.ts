@@ -15,6 +15,7 @@ export type guestType = {
 type guestResponseType = {
   phone: string;
   guests: guestType[];
+  message: string;
 };
 
 export const getGuestInfo = async (
