@@ -125,6 +125,13 @@
   color: var(--wedding-navy-dark);
 }
 
+.rsvp-button-message-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  gap: 8px;
+}
+
 /* === BUTTONS === */
 .rsvp-button-container {
   display: flex;

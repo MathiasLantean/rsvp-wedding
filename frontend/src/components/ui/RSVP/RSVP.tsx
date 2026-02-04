@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Input} from "../input";
 import {Textarea} from "../textarea";
 import {Label} from "../label";
@@ -28,7 +28,7 @@ const RSVP: React.FC = () => {
     } catch (error) {
       console.error("Error submitting RSVP", error);
       setErrorMessage(
-        "Hubo un problema al enviar tu confirmación. Intentá nuevamente.",
+        "Hubo un problema al enviar tu confirmación. Intenta nuevamente.",
       );
     } finally {
       setIsLoading(false);
@@ -68,6 +68,7 @@ const RSVP: React.FC = () => {
         ...prev,
         phone: cellphone,
         guests: res.guests as guestType[],
+        message: res.message,
       }));
     } catch (error) {
       console.error("Error searching guest info", error);
@@ -96,19 +97,6 @@ const RSVP: React.FC = () => {
     }));
   };
 
-  useEffect(() => {
-    setFormData((prev) => ({
-      ...prev,
-      guests: [
-        {
-          name: "Pam Auro",
-          attending: true,
-          notes: null,
-        },
-      ],
-    }));
-  }, []);
-
   return (
     <>
       {isLoading && (
@@ -127,7 +115,7 @@ const RSVP: React.FC = () => {
           {/* Phone */}
           <div className="rsvp-field">
             <Label htmlFor="phone" className="rsvp-label">
-              Ingresá tu número de teléfono
+              Ingresa tu número de teléfono
             </Label>
             <Input
               id="phone"
@@ -143,7 +131,11 @@ const RSVP: React.FC = () => {
               className="rsvp-input"
             />
             {errorMessage && <p className="rsvp-error-text">{errorMessage}</p>}
-            <button type="submit" className="rsvp-button-submit-number">
+            <button 
+              type="button" 
+              className="rsvp-button-submit-number" 
+              onClick={() => searchGuestInfo(formData.phone)}
+            >
               Listo
             </button>
           </div>
@@ -151,8 +143,9 @@ const RSVP: React.FC = () => {
           {/* Guests */}
           {/* replace when fix is done */}
           {formData.guests.length > 0 && (
+            <>
             <div>
-              <h2 className="rsvp-guest-title">Confirmá tu asistencia</h2>
+              <h2 className="rsvp-guest-title">Confirma tu asistencia</h2>
               <div className="rsvp-guests">
                 {/* replace when fix is done */}
                 {formData.guests.map((guest) => (
@@ -219,7 +212,7 @@ const RSVP: React.FC = () => {
                     {guest.notes?.startsWith("otra:") && (
                       <div className="rsvp-field">
                         <Label htmlFor="" className="rsvp-label">
-                          Especificá tu restricción o preferencia
+                          Especifica tu restricción o preferencia
                         </Label>
                         <Textarea
                           rows={3}
@@ -235,23 +228,23 @@ const RSVP: React.FC = () => {
                         />
                       </div>
                     )}
-                    <div className="rsvp-field">
-                      <Label htmlFor="message" className="rsvp-label">
-                        Dejá un mensaje para los novios
-                      </Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) =>
-                          handleFieldChange("message", e.target.value)
-                        }
-                        placeholder="Dejanos unas palabras lindas"
-                        rows={5}
-                        className="rsvp-textarea"
-                      />
-                    </div>
                   </div>
                 ))}
+              </div>
+              <div className="rsvp-button-message-container">
+                <Label htmlFor="message" className="rsvp-label">
+                  Deja un mensaje para los novios
+                </Label>
+                <Textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) =>
+                    handleFieldChange("message", e.target.value)
+                  }
+                  placeholder="Déjanos unas palabras lindas"
+                  rows={5}
+                  className="rsvp-textarea"
+                />
               </div>
 
               <div className="rsvp-button-container">
@@ -261,6 +254,7 @@ const RSVP: React.FC = () => {
                 </button>
               </div>
             </div>
+            </>
           )}
         </form>
       ) : (
