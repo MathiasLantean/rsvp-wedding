@@ -36,6 +36,7 @@
   align-items: flex-start;
   width: 160px;
   margin: 0 auto;
+  color: var(--wedding-navy-dark);
 }
 
 .location-title {

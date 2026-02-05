@@ -13,7 +13,7 @@
   --font-cursive: "Fave", cursive;
 
   --color-navy: oklch(0.15 0.05 260);
-  --color-gold: oklch(0.78 0.06 25);
+  --color-gold: #fbb3a6;
 
   /* Wedding color palette */
   --wedding-navy-dark: #1a1a7b;

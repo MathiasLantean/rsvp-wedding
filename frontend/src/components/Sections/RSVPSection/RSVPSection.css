@@ -1,5 +1,4 @@
-/* === RSVP SECTION === */
-.rsvp {
+.rsvp-section {
   position: relative;
   width: 100%;
   min-height: 80vh;
@@ -10,22 +9,7 @@
   overflow: hidden;
 }
 
-/* === BACKGROUND === */
-.rsvp-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-}
-
-.rsvp-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-}
-
-/* === CONTENT === */
-
-.rsvp-content {
+.rsvp-section-content {
   position: relative;
   z-index: 1;
 
@@ -33,55 +17,64 @@
   background-repeat: no-repeat;
 
   width: 100%;
-  height: 800px;
+  height: 400px;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-/* === TYPOGRAPHY === */
-
-.rsvp-title {
+.rsvp-section-title {
   font-family: var(--font-cursive);
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   line-height: normal;
   color: var(--wedding-navy-light);
 }
 
-.rsvp-text {
+.rsvp-section-text {
   font-size: 1rem;
-  margin-bottom: 3rem;
+  margin: 2rem 0rem;
   color: var(--wedding-navy-light);
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: normal;
+  max-width: 90%;
 }
 
-/* === FORM WRAPPER === */
-
-.rsvp-form {
+.rsvp-section-form {
+  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
-  width: 100%;
-}
-
-/* === RESPONSIVE === */
-@media (min-width: 640px) {
-  .rsvp-title {
-    font-size: 2.75rem;
-    line-height: normal;
-  }
-  .rsvp-text {
-    font-size: 1rem;
-    line-height: normal;
-  }
 }
 
 @media (min-width: 768px) {
-  .rsvp-title {
+  .rsvp-section-content {
+    height: 800px;
+  }
+
+  .rsvp-section-title {
+    font-size: 2.75rem;
+    line-height: normal;
+  }
+
+  .rsvp-section-text {
+    font-size: 1rem;
+    line-height: normal;
+    max-width: 100%;
+    margin: 0rem 0rem 3rem 0rem;
+  }
+
+  .rsvp-section-title {
     font-size: 5.25rem;
+  }
+
+  .rsvp-section-form {
+    width: 100%;
+    max-width: 40%;
+    margin-inline: auto;
   }
 }

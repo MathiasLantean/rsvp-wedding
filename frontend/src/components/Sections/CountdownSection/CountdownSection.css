@@ -44,7 +44,7 @@
   .countdown-section {
     height: 700px;
 
-    background-image: url("../../../assets/countdown_section_mobile.png");
+    background-image: url("../../../assets/countdown-section-mobile.png");
     background-position: center top;
     background-size: cover;
 
@@ -53,12 +53,13 @@
   }
 
   .countdown-section-title {
-    font-size: 6rem;
-    line-height: 0.75;
+    font-size: 5rem;
+    line-height: 0.65;
   }
 
   .countdown-section-subtitle {
-    font-size: 1 em;
+    font-size: 0.875rem;
     letter-spacing: 1px;
+    padding-top: 16px;
   }
 }
