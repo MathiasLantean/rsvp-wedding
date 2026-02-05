@@ -67,9 +67,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           "placeholder:text-gray-400",
           "ring-offset-background",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-          "focus-visible:ring-[var(--wedding-navy-light)]",
-          "focus:border-[var(--wedding-navy-light)]",
-          "active:border-[var(--wedding-navy-light)]",
+          "focus-visible:ring-[var(--wedding-navy-dark)]",
+          "focus:border-[var(--wedding-navy-dark)]",
+          "active:border-[var(--wedding-navy-dark)]",
           "disabled:cursor-not-allowed disabled:opacity-50",
           className,
         )}

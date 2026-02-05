@@ -12,7 +12,7 @@
   --font-display: "Optima", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-cursive: "Fave", cursive;
 
-  --color-navy: oklch(0.15 0.05 260);
+  --color-navy: #1a1a7b;
   --color-gold: #fbb3a6;
 
   /* Wedding color palette */
@@ -20,6 +20,7 @@
   --wedding-navy-light: #6167b2;
   --wedding-rose-dark: #fbb3a6;
   --wedding-rose-gold: #f1cdbf;
+  --wedding-navy-grey: ##c7caee;
   --wedding-cream: #f4f3ef;
 
   --color-title-primary: oklch(0.78 0.06 25);
