@@ -7,6 +7,7 @@ import Footer from "./components/Sections/Footer/Footer";
 import CelebrationSection from "./components/Sections/CelebrationSection/CelebrationSection";
 import Gift from "./components/Sections/Gift/Gift";
 import LocationSection from "./components/Sections/LocationSection/LocationSection";
+import AboutUsSection from "./components/Sections/AboutUsSection/AboutUsSection";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -41,7 +42,7 @@ const Hero: React.FC = () => {
       <RSVPSection />
       <CelebrationSection />
       <LocationSection />
-      <StorySection ref={storyRef} />
+      <AboutUsSection />
       <Gift />
       <Footer />
     </div>
