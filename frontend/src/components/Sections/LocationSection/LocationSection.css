@@ -60,7 +60,7 @@
 .button-search {
   padding: 0.5rem 2rem;
   border-radius: 9999px;
-  background-color: var(--wedding-navy-light);
+  color: var(--wedding-navy-dark);
   color: white;
   font-size: 0.75rem;
   font-weight: 500;

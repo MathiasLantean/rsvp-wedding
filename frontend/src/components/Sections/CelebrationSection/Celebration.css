@@ -24,7 +24,7 @@
   font-family: var(--font-cursive);
   font-size: 5rem;
   line-height: normal;
-  color: var(--wedding-navy-light);
+  color: var(--wedding-navy-dark);
   padding-top: 24px;
 }
 
@@ -32,7 +32,7 @@
   font-size: 2rem;
   font-family: var(--font-display);
   font-weight: 500;
-  color: var(--wedding-navy-light);
+  color: var(--wedding-navy-dark);
   letter-spacing: 2px;
 }
 
@@ -40,7 +40,7 @@
   font-size: 1rem;
   font-family: var(--font-display);
   font-weight: 500;
-  color: var(--wedding-navy-light);
+  color: var(--wedding-navy-dark);
   letter-spacing: 2px;
   width: 88vw;
 }

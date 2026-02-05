@@ -38,15 +38,17 @@
   color: var(--wedding-navy-dark);
 }
 
-/* === FORM === */
 .rsvp-wrapper {
   width: 80%;
 }
 
-.rsvp-form {
+.rsvp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.rsvp-field {
+.rsvp-field-number {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -58,12 +60,10 @@
   text-align: left;
 }
 
-/* === INPUTS === */
 .rsvp-textarea {
   resize: none;
 }
 
-/* === GUESTS === */
 .rsvp-guests {
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@
 }
 
 .rsvp-guest {
-  color: var(--wedding-navy-dark);
+  color: var(--wedding-rose-dark);
   font-size: 0.875rem;
   font-weight: 700;
   text-align: left;
@@ -93,10 +93,6 @@
   text-align: left;
 }
 
-@media (min-width: 768px) {
-}
-
-/* === ATTENDANCE === */
 .rsvp-attendance-group {
   display: flex;
   gap: 1.5rem;
@@ -109,7 +105,6 @@
   gap: 0.5rem;
   cursor: pointer;
   font-size: 0.875rem;
-  /* color: var(--wedding-navy-dark); */
 }
 
 .rsvp-radio input {
@@ -131,7 +126,6 @@
   gap: 8px;
 }
 
-/* === BUTTONS === */
 .rsvp-button-container {
   display: flex;
   flex-direction: row;
@@ -162,7 +156,7 @@
 .rsvp-button-submit {
   padding: 0.5rem 2rem;
   border-radius: 9999px;
-  background-color: var(--wedding-navy-light);
+  background-color: var(--wedding-navy-dark);
   color: white;
   font-size: 0.75rem;
   font-weight: 500;
@@ -173,13 +167,13 @@
 
 .rsvp-button-submit:hover,
 .rsvp-button-submit-number:hover {
-  background-color: var(--wedding-navy-dark);
+  background-color: var(--wedding-navy-light);
 }
 
 .rsvp-button-submit-number {
   padding: 0.5rem 2rem;
   border-radius: 9999px;
-  background-color: var(--wedding-navy-light);
+  background-color: var(--wedding-navy-dark);
   color: white;
   font-size: 0.75rem;
   font-weight: 500;
@@ -188,25 +182,31 @@
   cursor: pointer;
 }
 
-/* === SUCCESS === */
-
 .rsvp-success {
   padding: 4rem 0;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
 .rsvp-success-title {
-  font-size: 1.5rem;
-  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-family: var(--font-cursive);
   color: var(--wedding-rose-dark);
 }
 
 .rsvp-success-text {
   font-size: 1.125rem;
   max-width: 28rem;
-  margin: 0 auto;
   color: var(--wedding-navy-dark);
+}
+
+.rsvp-error-text {
+  color: red;
+  font-size: 0.875rem;
+  text-align: start;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
 }

@@ -30,13 +30,13 @@
   font-family: var(--font-cursive);
   font-size: 2.75rem;
   line-height: normal;
-  color: var(--wedding-navy-light);
+  color: var(--wedding-navy-dark);
 }
 
 .rsvp-section-text {
   font-size: 1rem;
   margin: 2rem 0rem;
-  color: var(--wedding-navy-light);
+  color: var(--wedding-navy-dark);
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 2px;
