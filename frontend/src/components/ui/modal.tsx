@@ -41,17 +41,25 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
           ref={ref}
           className={cn(
             `
-            relative
-            w-[92%] max-w-md
-            h-[90dvh]
-            overflow-hidden
-            rounded-3xl
-            bg-white
-            border border-rose-100
-            shadow-xl
-            py-8 px-6
-            text-wedding-navy-dark
-          `,
+    relative
+    flex flex-col
+    bg-white
+    text-wedding-navy-dark
+    overflow-hidden
+
+    /* Desktop */
+    w-[92%] max-w-md
+    h-[90dvh]
+    rounded-3xl
+    border border-rose-100
+    shadow-xl
+
+    /* Mobile full screen */
+    md:rounded-3xl
+    max-md:w-screen
+    max-md:h-[100dvh]
+    max-md:rounded-none
+  `,
             className,
           )}
           {...props}
@@ -69,6 +77,8 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     text-[var(--wedding-navy-dark)]
     transition-all duration-200
     hover:scale-105
+
+    max-md:right-2
   "
             style={{
               backgroundColor: "transparent",
@@ -84,7 +94,9 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
             ✕
           </button>
 
-          <div className="h-full overflow-y-auto px-2 py-8">{children}</div>
+          <div className="h-full overflow-y-auto px-4 py-8 max-md:px-3">
+            {children}
+          </div>
         </div>
       </div>
     );
