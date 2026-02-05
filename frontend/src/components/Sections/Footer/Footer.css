@@ -42,13 +42,20 @@
   .footer {
     background-color: var(--wedding-navy-dark);
     height: auto;
-    padding: 8px;
+    padding: 16px 8px;
     font-size: 0.75rem;
   }
+
   .footer-content {
     flex-direction: column;
     gap: 12px;
   }
+
+  .footer-title {
+    line-height: normal;
+    max-width: 90vw;
+  }
+
   .footer-contact-caro {
     text-align: center;
   }

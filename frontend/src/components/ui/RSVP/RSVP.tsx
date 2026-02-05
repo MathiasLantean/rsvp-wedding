@@ -98,7 +98,7 @@ const RSVP: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="rsvp-wrapper">
       {isLoading && (
         <div className="rsvp-loading">
           <div className="rsvp-loading-inner">
@@ -131,9 +131,9 @@ const RSVP: React.FC = () => {
               className="rsvp-input"
             />
             {errorMessage && <p className="rsvp-error-text">{errorMessage}</p>}
-            <button 
-              type="button" 
-              className="rsvp-button-submit-number" 
+            <button
+              type="button"
+              className="rsvp-button-submit-number"
               onClick={() => searchGuestInfo(formData.phone)}
             >
               Listo
@@ -144,116 +144,116 @@ const RSVP: React.FC = () => {
           {/* replace when fix is done */}
           {formData.guests.length > 0 && (
             <>
-            <div>
-              <h2 className="rsvp-guest-title">Confirma tu asistencia</h2>
-              <div className="rsvp-guests">
-                {/* replace when fix is done */}
-                {formData.guests.map((guest) => (
-                  <div key={guest.name} className="rsvp-guest-items">
-                    <p className="rsvp-guest">{guest.name}</p>
-                    <div className="rsvp-attendance-group">
-                      <label className="rsvp-radio">
-                        <input
-                          type="radio"
-                          name={`attendance-${guest.name}`}
-                          checked={guest.attending === true}
-                          onChange={() =>
-                            updateGuest(guest.name, {attending: true})
-                          }
-                        />
-                        <span className="rsvp-radio-label">Asistiré</span>
-                      </label>
-                      <label className="rsvp-radio">
-                        <input
-                          type="radio"
-                          name={`attendance-${guest.name}`}
-                          checked={guest.attending === false}
-                          onChange={() =>
-                            updateGuest(guest.name, {attending: false})
-                          }
-                        />
-                        <span className="rsvp-radio-label">Me lo pierdo</span>
-                      </label>
-                    </div>
-                    <div className="rsvp-field">
-                      <Label htmlFor="" className="rsvp-label">
-                        ¿Tenés alguna restricción o preferencia alimentaria?
-                      </Label>
-                      <Select
-                        value={
-                          guest.notes?.startsWith("otra:")
-                            ? "otra"
-                            : (guest.notes ?? "ninguna")
-                        }
-                        placeholder="Seleccioná una opción"
-                        options={[
-                          {label: "Ninguna", value: "ninguna"},
-                          {label: "Vegetariano/a", value: "vegetariano/a"},
-                          {label: "Vegano/a", value: "vegano/a"},
-                          {
-                            label: "Celíaco/a (sin TACC)",
-                            value: "celíaco/a (sin TACC)",
-                          },
-                          {label: "Sin lactosa", value: "sin lactosa"},
-                          {label: "Otra", value: "otra"},
-                        ]}
-                        onValueChange={(value) => {
-                          if (value === "otra") {
-                            updateGuest(guest.name, {notes: "otra:"});
-                          } else if (value === "ninguna") {
-                            updateGuest(guest.name, {notes: null});
-                          } else {
-                            updateGuest(guest.name, {notes: value});
-                          }
-                        }}
-                        disabled={guest.attending === false}
-                      />
-                    </div>
-                    {guest.notes?.startsWith("otra:") && (
+              <div>
+                <h2 className="rsvp-guest-title">Confirma tu asistencia</h2>
+                <div className="rsvp-guests">
+                  {/* replace when fix is done */}
+                  {formData.guests.map((guest) => (
+                    <div key={guest.name} className="rsvp-guest-items">
+                      <p className="rsvp-guest">{guest.name}</p>
+                      <div className="rsvp-attendance-group">
+                        <label className="rsvp-radio">
+                          <input
+                            type="radio"
+                            name={`attendance-${guest.name}`}
+                            checked={guest.attending === true}
+                            onChange={() =>
+                              updateGuest(guest.name, {attending: true})
+                            }
+                          />
+                          <span className="rsvp-radio-label">Asistiré</span>
+                        </label>
+                        <label className="rsvp-radio">
+                          <input
+                            type="radio"
+                            name={`attendance-${guest.name}`}
+                            checked={guest.attending === false}
+                            onChange={() =>
+                              updateGuest(guest.name, {attending: false})
+                            }
+                          />
+                          <span className="rsvp-radio-label">Me lo pierdo</span>
+                        </label>
+                      </div>
                       <div className="rsvp-field">
                         <Label htmlFor="" className="rsvp-label">
-                          Especifica tu restricción o preferencia
+                          ¿Tenés alguna restricción o preferencia alimentaria?
                         </Label>
-                        <Textarea
-                          rows={3}
-                          className="rsvp-textarea"
-                          placeholder="Especificá tu restricción o preferencia"
-                          value={""}
-                          onChange={(e) =>
-                            updateGuest(guest.name, {
-                              notes: `otra: ${e.target.value}`,
-                            })
+                        <Select
+                          value={
+                            guest.notes?.startsWith("otra:")
+                              ? "otra"
+                              : (guest.notes ?? "ninguna")
                           }
+                          placeholder="Seleccioná una opción"
+                          options={[
+                            {label: "Ninguna", value: "ninguna"},
+                            {label: "Vegetariano/a", value: "vegetariano/a"},
+                            {label: "Vegano/a", value: "vegano/a"},
+                            {
+                              label: "Celíaco/a (sin TACC)",
+                              value: "celíaco/a (sin TACC)",
+                            },
+                            {label: "Sin lactosa", value: "sin lactosa"},
+                            {label: "Otra", value: "otra"},
+                          ]}
+                          onValueChange={(value) => {
+                            if (value === "otra") {
+                              updateGuest(guest.name, {notes: "otra:"});
+                            } else if (value === "ninguna") {
+                              updateGuest(guest.name, {notes: null});
+                            } else {
+                              updateGuest(guest.name, {notes: value});
+                            }
+                          }}
                           disabled={guest.attending === false}
                         />
                       </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className="rsvp-button-message-container">
-                <Label htmlFor="message" className="rsvp-label">
-                  Deja un mensaje para los novios
-                </Label>
-                <Textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={(e) =>
-                    handleFieldChange("message", e.target.value)
-                  }
-                  placeholder="Déjanos unas palabras lindas"
-                  rows={5}
-                  className="rsvp-textarea"
-                />
-              </div>
+                      {guest.notes?.startsWith("otra:") && (
+                        <div className="rsvp-field">
+                          <Label htmlFor="" className="rsvp-label">
+                            Especifica tu restricción o preferencia
+                          </Label>
+                          <Textarea
+                            rows={3}
+                            className="rsvp-textarea"
+                            placeholder="Especificá tu restricción o preferencia"
+                            value={""}
+                            onChange={(e) =>
+                              updateGuest(guest.name, {
+                                notes: `otra: ${e.target.value}`,
+                              })
+                            }
+                            disabled={guest.attending === false}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div className="rsvp-button-message-container">
+                  <Label htmlFor="message" className="rsvp-label">
+                    Deja un mensaje para los novios
+                  </Label>
+                  <Textarea
+                    id="message"
+                    value={formData.message}
+                    onChange={(e) =>
+                      handleFieldChange("message", e.target.value)
+                    }
+                    placeholder="Déjanos unas palabras lindas"
+                    rows={5}
+                    className="rsvp-textarea"
+                  />
+                </div>
 
-              <div className="rsvp-button-container">
-                <button className="rsvp-button">Cancelar</button>
-                <button type="submit" className="rsvp-button-submit">
-                  Enviar
-                </button>
+                <div className="rsvp-button-container">
+                  <button className="rsvp-button">Cancelar</button>
+                  <button type="submit" className="rsvp-button-submit">
+                    Enviar
+                  </button>
+                </div>
               </div>
-            </div>
             </>
           )}
         </form>
@@ -263,7 +263,7 @@ const RSVP: React.FC = () => {
           <p className="rsvp-success-text">{getConfirmationMessage()}</p>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -39,12 +39,11 @@
 }
 
 /* === FORM === */
+.rsvp-wrapper {
+  width: 80%;
+}
+
 .rsvp-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 400px;
-  margin-inline: auto;
 }
 
 .rsvp-field {
@@ -125,7 +124,7 @@
   color: var(--wedding-navy-dark);
 }
 
-.rsvp-button-message-container{
+.rsvp-button-message-container {
   display: flex;
   flex-direction: column;
   margin-top: 16px;

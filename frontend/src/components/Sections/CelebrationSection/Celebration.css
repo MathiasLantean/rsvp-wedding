@@ -1,6 +1,6 @@
 .celebration-section {
   position: relative;
-  height: 660px;
+  height: 630px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -24,12 +24,14 @@
   font-family: var(--font-cursive);
   font-size: 5rem;
   line-height: normal;
-  color: var(--wedding-navy-dark);
+  color: var(--wedding-navy-light);
+  padding-top: 24px;
 }
 
 .celebration-text {
   font-size: 2rem;
   font-family: var(--font-display);
+  font-weight: 500;
   color: var(--wedding-navy-light);
   letter-spacing: 2px;
 }
@@ -49,31 +51,37 @@
   font-weight: 700;
   color: var(--wedding-rose-dark);
   letter-spacing: 2px;
-  padding: 40px;
-  margin-bottom: 16px;
+  padding: 24px;
+  margin-bottom: 48px;
 }
 
 @media (max-width: 640px) {
   .celebration-section {
     background-image: none;
-    background-color: var(--wedding-rose-gold);
+    background-image: url("/src/assets/dress-code-mobile.png");
+    height: 620px;
   }
 
   .celebration-content {
-    padding: 0 2rem;
     gap: 16px;
+    margin-top: 48px;
   }
 
   .celebration-title {
-    font-size: 3.75rem;
+    font-size: 3rem;
   }
 
   .celebration-text {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .celebration-text-info {
-    font-size: 1.125rem;
+    font-size: 1rem;
+    max-width: 70vw;
     line-height: 20px;
+  }
+
+  .celebration-message {
+    max-width: 70vw;
   }
 }

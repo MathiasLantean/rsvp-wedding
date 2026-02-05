@@ -33,9 +33,17 @@
 
 @media (max-width: 768px) {
   .countdown-container-date {
-    gap: 10%;
+    gap: 8%;
   }
+
   .countdown-numbers {
-    font-size: 2rem;
+    padding-top: 16px;
+    font-size: 1.5rem;
+  }
+
+  .countdown-numbers-text {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--wedding-navy-dark);
   }
 }

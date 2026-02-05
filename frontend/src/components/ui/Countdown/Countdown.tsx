@@ -48,11 +48,15 @@ const Countdown: React.FC<CountdownProps> = ({targetDate}) => {
         <span className="countdown-numbers-text font-display"> horas </span>
       </div>
       <div className="countdown-number-container">
-        <span className="countdown-numbers">{timeLeft.minutes}</span>
+        <span className="countdown-numbers">
+          {String(timeLeft.minutes).padStart(2, "0")}
+        </span>
         <span className="countdown-numbers-text font-display"> minutos </span>
       </div>
       <div className="countdown-number-container">
-        <span className="countdown-numbers">{timeLeft.seconds}</span>
+        <span className="countdown-numbers">
+          {String(timeLeft.seconds).padStart(2, "0")}
+        </span>
         <span className="countdown-numbers-text font-display"> segundos </span>
       </div>
     </div>
