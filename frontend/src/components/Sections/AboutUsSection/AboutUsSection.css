@@ -1,0 +1,141 @@
+.split-container {
+  position: relative;
+  width: 100%;
+  height: 90vh;   /* más alto */
+  min-height: 700px; /* para que en pantallas grandes se luzca */
+  overflow: hidden;
+}
+
+.banner {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Imágenes */
+.banner-left {
+  background-image: url("/src/assets/split_mathi.jpg");
+}
+
+.banner-right {
+  background-image: url("/src/assets/split_caro.jpg");
+}
+
+.banner.active {
+  opacity: 1;
+}
+
+/* Zonas invisibles de hover */
+.hover-zone {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 5;
+}
+
+.hover-zone.left {
+  left: 0;
+}
+
+.hover-zone.right {
+  right: 0;
+}
+
+/* Overlays */
+.overlay {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35%;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  padding: 2rem;
+  z-index: 10;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
+}
+
+.overlay.left {
+  left: 5%;
+}
+
+.overlay.right {
+  right: 5%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.testimonial h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial .quote {
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.testimonial .author {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+
+.split-container.mobile {
+  height: 70vh;
+}
+
+.mobile-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  z-index: 10;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.mobile-text {
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.mobile-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mobile-actions button {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 500;
+}
+
+.mobile-actions button.active {
+  background: white;
+  color: black;
+}
+

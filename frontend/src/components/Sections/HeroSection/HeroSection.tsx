@@ -1,5 +1,5 @@
 import {forwardRef} from "react";
-import desktopHero3 from "../../../assets/hero-desktop-3.png";
+import desktopHero3 from "../../../assets/caro_mathi_1.jpg";
 import "./HeroSection.css";
 
 interface HeroSectionProps {
