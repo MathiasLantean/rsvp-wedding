@@ -1,129 +1,138 @@
 .gift-section {
   position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  min-height: 100vh;
   overflow: hidden;
-  font-family: var(--font-cursive);
-  font-weight: 400;
+  text-align: center;
 }
 
-.gift-background {
+/* Fondo con efecto parallax */
+.gift-parallax-bg {
   position: absolute;
   inset: 0;
-  width: 100%;
-}
-
-.gift-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background-image: url("/src/assets/caro_mathi2.jpg"); /* cambiá por tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* 👈 parallax simple */
+  z-index: 0;
+  filter: brightness(0.85);
 }
 
 .gift-content {
   position: relative;
   z-index: 1;
-
-  background-image: url("/src/assets/gift-bg.png");
-  background-repeat: no-repeat;
-
-  width: 100%;
-  background-size: cover;
-  background-position: center;
+  padding: 64px 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 48px 0;
-  gap: 24px;
+  gap: 32px;
+  align-items: center;
 }
 
 .gift-title {
   font-size: 4.5rem;
   font-weight: 400;
+  color: var(--wedding-rose-dark);
+  font-family: var(--font-cursive);
+}
+
+
+.gift-card {
+  background: rgba(255, 255, 255, 0.5); /* 👈 más transparente */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 5px;
+  padding: 24px 28px;
+
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  /* border: 1px solid rgba(255, 255, 255, 0.35); 👈 borde tipo vidrio */
   color: var(--wedding-navy-dark);
 }
 
-.gift-main-text {
+.gift-text-wrapper {
+  width: 100%;
+  max-width: 1100px; /* 👈 mismo que .gift-cards-grid */
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Card grande de texto */
+.gift-text-card {
+  width: 100%;
   font-family: var(--font-display);
-  color: var(--wedding-navy-dark);
-  max-width: 52vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  gap: 24px;
-}
-
-.gift-intro-text {
-  margin-top: 16px;
-}
-
-.gift-container {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  font-family: var(--font-display);
-  color: var(--wedding-navy-dark);
-  justify-content: center;
-}
-
-.gift-item-container {
-  border: 3px solid var(--wedding-navy-dark);
-  padding: 24px;
-  text-align: left;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 25%;
+}
+
+/* Grid de cuentas */
+.gift-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr)); /* 👈 2 por fila */
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 16px;
+}
+
+.gift-account-card {
+  text-align: left;
+  font-family: var(--font-display);
 }
 
 .gift-item-title {
   font-weight: 700;
-}
-
-.gift-item-value {
+  margin-bottom: 12px;
 }
 
 .gift-item-value-container {
   display: flex;
-  gap: 4px;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.gift-intro-text {
+  margin-top: 12px;
+  font-weight: 600;
 }
 
 .gift-thanks-text {
   padding-top: 16px;
   font-size: 2rem;
   font-family: var(--font-cursive);
-  color: var(--wedding-navy-dark);
+  color: var(--wedding-rose-dark);
 }
 
-@media (max-width: 768px) {
-  .gift-container {
-    flex-direction: column;
-    align-items: center;
+.gift-owner-title {
+  grid-column: 1 / -1; /* 👈 ocupa toda la fila del grid */
+  font-family: var(--font-cursive);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--wedding-rose-dark);
+  margin: 24px 0 8px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .gift-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gift-title {
+    font-size: 3rem;
   }
 
-  .gift-item-container {
-    width: 80%;
-    text-align: center;
-  }
-
-  .gift-item-value-container {
-    justify-content: center;
+  .gift-cards-grid {
+    grid-template-columns: 1fr;
   }
 
   .gift-thanks-text {
     font-size: 1.5rem;
-  }
-
-  .gift-main-text {
-    max-width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    gap: 24px;
   }
 }
