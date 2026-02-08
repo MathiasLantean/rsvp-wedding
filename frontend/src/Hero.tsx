@@ -40,10 +40,10 @@ const Hero: React.FC = () => {
     <div className="relative w-full">
       <HeroSection ref={heroRef} />
       <CountdownSection />
-      <RSVPSection />
+      <AboutUsSection />
       <CelebrationSection />
       <LocationSection />
-      <AboutUsSection />
+      <RSVPSection />
       <Gift />
       <GallerySection />
       <Footer />
