@@ -1,6 +1,6 @@
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 import HeroSection from "./components/Sections/HeroSection/HeroSection";
-import StorySection from "./components/Sections/StorySection/StorySection";
+
 import RSVPSection from "./components/Sections/RSVPSection/RSVPSection";
 import CountdownSection from "./components/Sections/CountdownSection/CountdownSection";
 import Footer from "./components/Sections/Footer/Footer";
@@ -8,14 +8,15 @@ import CelebrationSection from "./components/Sections/CelebrationSection/Celebra
 import Gift from "./components/Sections/Gift/Gift";
 import LocationSection from "./components/Sections/LocationSection/LocationSection";
 import AboutUsSection from "./components/Sections/AboutUsSection/AboutUsSection";
+import GallerySection from "./components/Sections/GallerySection/GallerySection";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement | null>(null);
-  const storyRef = useRef<HTMLElement | null>(null);
+
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = [heroRef.current, storyRef.current];
+      const sections = [heroRef.current];
       sections.forEach((section) => {
         if (!section) return;
         const rect = section.getBoundingClientRect();
@@ -30,7 +31,7 @@ const Hero: React.FC = () => {
       });
     };
 
-    window.addEventListener("scroll", handleScroll, {passive: true});
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -44,6 +45,7 @@ const Hero: React.FC = () => {
       <LocationSection />
       <AboutUsSection />
       <Gift />
+      <GallerySection />
       <Footer />
     </div>
   );
