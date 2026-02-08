@@ -1,10 +1,33 @@
+import {useState} from "react";
+import {Modal} from "../../ui/modal";
 import "./Gift.css";
 
 const Gift: React.FC = () => {
-  // TODO: change info accounts
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const accounts = [
     {
-      id: "ars",
+      id: "uyu",
+      title: "Cuenta bancaria en Pesos",
+      data: {
+        titular: "Carolina Reolon",
+        banco: "BROU",
+        cuenta: "Caja de Ahorro",
+        numero: "001385836-00002",
+      }
+    },
+    {
+      id: "usd",
+      title: "Cuenta bancaria en Dólares",
+      data: {
+        titular: "Carolina Reolon",
+        banco: "BROU",
+        cuenta: "Caja de Ahorro",
+        numero: "001385836-00003",
+      },
+    },
+    {
+      id: "uyu2",
       title: "Cuenta bancaria en Pesos",
       data: {
         titular: "Juan Pérez",
@@ -14,7 +37,7 @@ const Gift: React.FC = () => {
       },
     },
     {
-      id: "usd",
+      id: "usd2",
       title: "Cuenta bancaria en Dólares",
       data: {
         titular: "Juan Pérez",
@@ -38,48 +61,68 @@ const Gift: React.FC = () => {
       <div className="gift-overlay" />
 
       <div className="gift-content">
-        <h2 className="gift-title">Regalos</h2>
+        <div className="gift-card">
+          <h2 className="gift-title">Regalos</h2>
 
-        <div className="gift-main-text">
-          <p>
-            El mejor regalo para nosotros es que puedan acompañarnos en este día
-            tan especial, celebrar juntos, reírnos, abrazarnos y que estén toda
-            la noche bailando con nosotros 💃🕺✨
-          </p>
-          <p>
-            Peeeeero… si además estaban pensando en hacernos un regalo, siendo
-            sinceros: ninguna licuadora nos va a hacer tan felices como invertir
-            en nuestra casita 🏡💕
-          </p>
-          <p>
-            Por eso, cualquier aporte para este nuevo proyecto juntos será más
-            que bienvenido y profundamente agradecido.
-          </p>
-          <p className="gift-intro-text">
-            Les dejamos nuestras cuentas por si quieren sumarse:
+          <div className="gift-main-text">
+            <p className="gift-paragraph-text">
+              El mejor regalo para nosotros es que puedan acompañarnos en este día tan especial, celebrar juntos, 
+              reírnos, abrazarnos y compartir la fiesta con ustedes.
+            </p>
+            <p className="gift-paragraph-text">
+              Y si además estaban pensando en hacernos un regalo, siendo sinceros: nada nos va a hacer tan felices
+              como invertir en nuestra casita.
+            </p>
+            <p className="gift-paragraph-text">
+              Por eso, cualquier aporte para este nuevo proyecto juntos será más que bienvenido y muy agradecido.
+            </p>
+            <p className="gift-intro-text gift-paragraph-text">
+              Les dejamos nuestras cuentas por si quieren sumarse:
+            </p>
+          </div>
+
+          <button
+            type="button"
+            className="gift-button"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Ver cuentas bancarias
+          </button>
+
+          <p className="gift-thanks-text">
+            Gracias por ser parte de nuestra historia 💖
           </p>
         </div>
-
-        <div className="gift-container">
-          {accounts.map((account) => (
-            <div key={account.id} className="gift-item-container">
-              <h4 className="gift-item-title">{account.title}</h4>
-
-              <div className="gift-item-value">
-                {accountFields.map((field) => (
-                  <div key={field.label} className="gift-item-value-container">
-                    <span>{field.label}</span>
-                    <span>{account.data[field.key]}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className="gift-thanks-text">
-          Gracias por ser parte de nuestra historia 💖
-        </p>
       </div>
+
+      <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <div className="gift-modal-content">
+          <h2 className="gift-modal-title">Cuentas Bancarias</h2>
+          <div className="gift-modal-accounts">
+            {accounts.map((account) => (
+              <div key={account.id} className="gift-modal-account">
+                <h4 className="gift-modal-account-title">{account.title}</h4>
+
+                <div className="gift-modal-account-data">
+                  {accountFields.map((field) => (
+                    <div
+                      key={field.label}
+                      className="gift-modal-account-field"
+                    >
+                      <span className="gift-modal-field-label">
+                        {field.label}
+                      </span>
+                      <span className="gift-modal-field-value">
+                        {account.data[field.key]}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 };
