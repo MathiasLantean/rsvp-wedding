@@ -1,5 +1,6 @@
 provider "aws" {
   region = var.region
+  profile = "personal"
 }
 
 resource "aws_dynamodb_table" "rsvp" {
