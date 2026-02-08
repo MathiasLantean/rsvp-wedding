@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import "./AboutUsSection.css";
+import {Heart} from "lucide-react";
 
 export default function AboutUsSection() {
   const [side, setSide] = useState<"left" | "right">("left");
@@ -12,39 +13,83 @@ export default function AboutUsSection() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const isLeft = side === "left";
+
+  const TESTIMONIALS = {
+    left: {
+      name: "Mathi",
+      author: "— Caro",
+      quotes: [
+        "“Mathi es un compañero increíble. Está ahí de verdad: presente, involucrado y con una forma muy genuina de acompañar. Siempre busca entender a quienes lo rodean y tiene una manera muy linda de cuidar a las personas que quiere.”",
+        "Es súper inteligente y astuto: siempre le busca la vuelta a los problemas y encuentra soluciones donde otros ven obstáculos. Es un gran profesional, muy curioso con las nuevas tecnologías y siempre atento a lo que pasa a su alrededor.",
+        "Tiene un humor hermoso. Es divertido y siempre logra sacarme una sonrisa, incluso en mis días más grises.",
+        "Está en un camino constante de crecimiento personal. Siempre intenta ser una mejor persona, y esa búsqueda es contagiosa: me inspira a mí también a crecer y a caminar juntos, acompañándonos en el proceso.",
+        "Es mi lugar seguro y me trae mucha paz.”",
+      ],
+    },
+    right: {
+      name: "Caro",
+      author: "— Mathi",
+      quotes: [
+        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
+      ],
+    },
+  } as const;
+
+  const content = TESTIMONIALS[side];
+
   if (isMobile) {
     return (
       <section className="split-container mobile">
-        <div className={`banner banner-left ${side === "left" ? "active" : ""}`} />
-        <div className={`banner banner-right ${side === "right" ? "active" : ""}`} />
+        <div className={`banner banner-left ${isLeft ? "active" : ""}`} />
+        <div className={`banner banner-right ${!isLeft ? "active" : ""}`} />
 
         <div className="mobile-content">
           <div className="mobile-text">
-            {side === "left" ? (
-              <>
-                <h2>Texto A</h2>
-                <p>Descripción del banner A</p>
-              </>
-            ) : (
-              <>
-                <h2>Texto B</h2>
-                <p>Descripción del banner B</p>
-              </>
-            )}
+            <div className={`mobile-overlay-testimonial ${side}`}>
+              <h2 className="mobile-testimonial-title">{content.name}</h2>
+              {content.quotes.map((quote, i) => (
+                <p key={i} className="quote-mobile">
+                  {quote}
+                </p>
+              ))}
+              <p className="author-mobile">{content.author}</p>
+            </div>
           </div>
 
           <div className="mobile-actions">
             <button
-              className={side === "left" ? "active" : ""}
+              type="button"
+              aria-label="Option Mathi"
+              className={`heart-button ${
+                side === "left"
+                  ? "heart-active heart-navy"
+                  : "heart-inactive heart-navy"
+              }`}
               onClick={() => setSide("left")}
             >
-              Opción A
+              <Heart />
+              <span className="heart-label">MATHI</span>
             </button>
+            <h2
+              className={`mobile-title-section ${
+                side === "left" ? "is-navy" : "is-rose"
+              }`}
+            >
+              Nosotros
+            </h2>
             <button
-              className={side === "right" ? "active" : ""}
+              type="button"
+              aria-label="Option Caro"
+              className={`heart-button ${
+                side === "right"
+                  ? "heart-active heart-rose"
+                  : "heart-inactive heart-rose"
+              }`}
               onClick={() => setSide("right")}
             >
-              Opción B
+              <Heart />
+              <span className="heart-label">CARO</span>
             </button>
           </div>
         </div>
@@ -52,54 +97,26 @@ export default function AboutUsSection() {
     );
   }
 
-  // Desktop: tu versión con hover
   return (
     <section className="split-container">
-      <div className={`banner banner-left ${side === "left" ? "active" : ""}`} />
-      <div className={`banner banner-right ${side === "right" ? "active" : ""}`} />
-
-      <div className="hover-zone left" onMouseEnter={() => setSide("left")} />
-      <div className="hover-zone right" onMouseEnter={() => setSide("right")} />
-
-      {side === "left" && (
-        <div className="overlay right testimonial">
-        <h2>Mathi</h2>
-      
-        <p className="quote">
-          “Mathi es un compañero increíble. Está ahí de verdad: presente, involucrado y con una forma muy genuina de acompañar. 
-          Siempre busca entender a quienes lo rodean y tiene una manera muy linda de cuidar a las personas que quiere.”
-        </p>
-      
-        <p className="quote">
-          Es súper inteligente y astuto: siempre le busca la vuelta a los problemas y encuentra soluciones donde otros ven obstáculos. 
-          Es un gran profesional, muy curioso con las nuevas tecnologías y siempre atento a lo que pasa a su alrededor.
-        </p>
-      
-        <p className="quote">
-          Tiene un humor hermoso. Es divertido y siempre logra sacarme una sonrisa, incluso en mis días más grises.
-        </p>
-      
-        <p className="quote">
-          Está en un camino constante de crecimiento personal. Siempre intenta ser una mejor persona, y esa búsqueda es contagiosa: 
-          me inspira a mí también a crecer y a caminar juntos, acompañándonos en el proceso.
-        </p>
-      
-        <p className="quote">
-          Es mi lugar seguro y me trae mucha paz.”
-        </p>
-      
-        <p className="author">— Caro</p>
+      <div className={`banner banner-left ${isLeft ? "active" : ""}`} />
+      <div className={`banner banner-right ${!isLeft ? "active" : ""}`} />
+      {(["left", "right"] as const).map((s) => (
+        <div
+          key={s}
+          className={`hover-zone ${s}`}
+          onMouseEnter={() => setSide(s)}
+        />
+      ))}
+      <div className={`overlay testimonial ${isLeft ? "right" : "left"}`}>
+        <h2>{content.name}</h2>
+        {content.quotes.map((quote, i) => (
+          <p key={i} className="quote">
+            {quote}
+          </p>
+        ))}
+        <p className="author">{content.author}</p>
       </div>
-      
-
-      )}
-
-      {side === "right" && (
-        <div className="overlay left">
-          <h2>Caro</h2>
-          <p>Este texto aparece cuando estás del lado derecho</p>
-        </div>
-      )}
     </section>
   );
 }

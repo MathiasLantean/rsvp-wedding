@@ -1,7 +1,7 @@
 .map-wrapper {
   position: relative;
-  width: 50%;
-  height: 300px;
+  width: 70%;
+  height: 500px;
 }
 
 .map-wrapper iframe {
@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  background-color: var(--wedding-navy-dark);
 }
 
 .location-title-container {
@@ -36,13 +37,13 @@
   align-items: flex-start;
   width: 160px;
   margin: 0 auto;
-  color: var(--wedding-navy-dark);
+  color: var(--wedding-rose-dark);
 }
 
 .location-title {
   font-family: var(--font-cursive);
   font-size: 4rem;
-  color: var(--color-gold);
+  color: var(--wedding-rose-dark);
   line-height: normal;
 }
 
@@ -57,11 +58,11 @@
   text-align: left;
 }
 
-.button-search {
+.location-button-search {
   padding: 0.5rem 2rem;
   border-radius: 9999px;
+  background-color: var(--wedding-rose-dark);
   color: var(--wedding-navy-dark);
-  color: white;
   font-size: 0.75rem;
   font-weight: 500;
   font-family: var(--font-display);
@@ -69,8 +70,8 @@
   cursor: pointer;
 }
 
-.button-search:hover {
-  background-color: var(--wedding-navy-dark);
+.location-button-search:hover {
+  background-color: var(--wedding-rose-gold);
 }
 
 @media (max-width: 768px) {
