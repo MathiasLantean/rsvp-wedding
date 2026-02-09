@@ -37,6 +37,8 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
             font-medium
             transition-colors
             hover:bg-rose-50
+
+            max-md:text-sm
           "
         >
           <span>{title}</span>

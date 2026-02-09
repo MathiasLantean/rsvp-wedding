@@ -148,7 +148,6 @@ const Gift: React.FC = () => {
                   onToggle={() =>
                     setOpenId(openId === account.id ? null : account.id)
                   }
-                  className=""
                 >
                   {accountFields.map((field) => {
                     const value = account.data[field.key];

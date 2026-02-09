@@ -152,5 +152,11 @@
 
   .gift-accounts-grid {
     grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .gift-person-title {
+    font-size: 3rem;
+    line-height: normal;
   }
 }

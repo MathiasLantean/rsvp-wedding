@@ -39,7 +39,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({value, className}) => {
       )}
     >
       {copied ? (
-        <Check className="w-4 h-4 text-green-600" />
+        <Check className="w-4 h-4 text-[var(--wedding-navy-light)]" />
       ) : (
         <Copy className="w-4 h-4" />
       )}
