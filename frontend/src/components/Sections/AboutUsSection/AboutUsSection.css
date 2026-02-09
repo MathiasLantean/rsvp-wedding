@@ -121,17 +121,22 @@
 .mobile-actions {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  background: rgba(182, 178, 178, 0.25);
   padding: 8px 16px;
-}
 
-.mobile-testimonial-title {
-  font-size: 1rem;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--wedding-navy-light) 28%, transparent),
+    color-mix(in srgb, var(--wedding-rose-gold) 28%, transparent)
+  );
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .mobile-title-section {
-  font-size: 4rem;
+  font-size: 3.25rem;
   font-family: var(--font-cursive);
   line-height: normal;
   transition: color 0.25s ease;
@@ -193,27 +198,28 @@
   position: absolute;
   border-radius: 16px;
   z-index: 2;
-  padding: 1.5rem;
+  padding: 1.25rem;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border-radius: 20px;
+  line-height: 15px;
 }
 
 .mobile-overlay-testimonial.right {
-  background: rgba(6, 6, 6, 0.55);
+  background: rgba(25, 25, 30, 0.55);
   color: var(--wedding-rose-gold);
   top: 90px;
   left: 8px;
-  max-width: 75vw;
+  max-width: 65vw;
 }
 
 .mobile-overlay-testimonial.left {
   background: rgba(248, 239, 239, 0.55);
   color: var(--wedding-navy-dark);
-  top: 20px;
+  top: 32px;
   right: 8px;
   text-align: right;
-  max-width: 75vw;
+  max-width: 65vw;
 }
 
 .mobile-testimonial-title {

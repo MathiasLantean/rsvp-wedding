@@ -32,6 +32,10 @@ export default function AboutUsSection() {
       author: "— Mathi",
       quotes: [
         "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
+        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
+        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
+        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
+        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
       ],
     },
   } as const;
