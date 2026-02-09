@@ -22,6 +22,13 @@ const RSVP: React.FC<RSVPProps> = ({onConfirmAttendance}) => {
     message: "",
   });
 
+  const googleCalendarUrl =     "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+  "&text=Casamiento+de+Caro+y+Mathi+💍" +
+  "&dates=20260328T180000/20260329T023000" +
+  "&ctz=America%2FMontevideo" +
+  "&details=¡Te esperamos para celebrar nuestro casamiento!" +
+  "&location=Los Tilos, Cno. del Tropero 4750, 12800 Montevideo, Departamento de Montevideo, Uruguay";
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage(null);
@@ -42,6 +49,10 @@ const RSVP: React.FC<RSVPProps> = ({onConfirmAttendance}) => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const addEventToCalendar = () => {
+    window.open(googleCalendarUrl, "_blank", "noopener,noreferrer");
   };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -311,6 +322,15 @@ const RSVP: React.FC<RSVPProps> = ({onConfirmAttendance}) => {
                 ¿Querés modificar tu respuesta?
               </button>
             </>
+          )}
+          {attendingCount > 0 && (
+            <button
+              type="button"
+              className="rsvp-button-submit rsvp-button-edit"
+              onClick={addEventToCalendar}
+            >
+              Agendar la fecha en Google Calendar
+            </button>
           )}
         </div>
       )}
