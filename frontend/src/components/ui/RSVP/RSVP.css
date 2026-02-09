@@ -67,6 +67,10 @@
 
 .rsvp-modal-wrapper {
   padding-inline: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .rsvp-textarea {
@@ -132,7 +136,7 @@
 .rsvp-button-message-container {
   display: flex;
   flex-direction: column;
-  margin-top: 16px;
+  margin-top: 24px;
   gap: 8px;
 }
 
@@ -141,7 +145,7 @@
   flex-direction: row;
   gap: 8px;
   justify-content: end;
-  padding: 16px 0px;
+  padding-top: 16px;
 }
 
 .rsvp-button {
@@ -207,10 +211,10 @@
 }
 
 .rsvp-success {
-  /* padding: 4rem 0; */
   text-align: center;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .rsvp-success-title {
@@ -221,7 +225,6 @@
 
 .rsvp-success-text {
   font-size: 1.125rem;
-  max-width: 28rem;
   color: var(--wedding-navy-dark);
 }
 
@@ -238,9 +241,5 @@
   }
   .rsvp-modal-wrapper {
     padding-inline: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 }

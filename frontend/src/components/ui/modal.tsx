@@ -29,7 +29,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       <div className="fixed inset-0 z-[9999] flex items-center justify-center">
         {/* Backdrop rosa */}
         <div
-          className="absolute inset-0 z-[9998]"
+          className="absolute inset-0"
           style={{
             backgroundColor:
               "color-mix(in srgb, var(--wedding-rose-dark) 70%, transparent)",
@@ -63,6 +63,8 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     max-md:w-screen
     max-md:h-[100dvh]
     max-md:rounded-none
+    max-md:top-0
+
   `,
             className,
           )}

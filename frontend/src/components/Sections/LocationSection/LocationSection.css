@@ -20,7 +20,7 @@
   bottom: 0;
   background: rgba(200, 168, 175, 0.45);
   pointer-events: none; /* permite interactuar con el mapa */
-  z-index: 2;
+  z-index: 1;
 }
 
 .location-container {

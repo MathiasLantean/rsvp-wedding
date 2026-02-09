@@ -250,7 +250,7 @@ const RSVP: React.FC<RSVPProps> = ({onConfirmAttendance}) => {
                             Especifica tu restricción o preferencia
                           </Label>
                           <Textarea
-                            rows={3}
+                            rows={5}
                             className="rsvp-textarea"
                             placeholder="Especificá tu restricción o preferencia"
                             value={guest.notes}
