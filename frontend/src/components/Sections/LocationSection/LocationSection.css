@@ -1,7 +1,7 @@
 .map-wrapper {
   position: relative;
   width: 70%;
-  height: 500px;
+  height: 600px;
 }
 
 .map-wrapper iframe {
@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(200, 168, 175, 0.45); /* rosa viejo */
+  background: rgba(200, 168, 175, 0.45);
   pointer-events: none; /* permite interactuar con el mapa */
   z-index: 2;
 }
@@ -27,24 +27,37 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  background-color: var(--wedding-navy-dark);
 }
 
 .location-title-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  width: 160px;
+  align-items: center;
+  width: 30%;
   margin: 0 auto;
-  color: var(--wedding-rose-dark);
+  color: var(--wedding-navy-dark);
+
+  position: relative;
+  background-image: url("/src/assets/location-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .location-title {
   font-family: var(--font-cursive);
   font-size: 4rem;
-  color: var(--wedding-rose-dark);
+  color: var(--wedding-navy-dark);
   line-height: normal;
+}
+
+.location-icon-link {
+  color: var(--wedding-navy-dark);
+}
+
+.location-icon-link:hover {
+  color: var(--wedding-navy-light);
 }
 
 .location-text {
@@ -61,8 +74,8 @@
 .location-button-search {
   padding: 0.5rem 2rem;
   border-radius: 9999px;
-  background-color: var(--wedding-rose-dark);
-  color: var(--wedding-navy-dark);
+  background-color: var(--wedding-navy-dark);
+  color: var(--wedding-rose-gold);
   font-size: 0.75rem;
   font-weight: 500;
   font-family: var(--font-display);
@@ -71,7 +84,7 @@
 }
 
 .location-button-search:hover {
-  background-color: var(--wedding-rose-gold);
+  background-color: var(--wedding-navy-light);
 }
 
 @media (max-width: 768px) {
