@@ -1,53 +1,10 @@
-import {useState} from "react";
+import { useState } from "react";
 import "./Gift.css";
-import {Accordion} from "../../ui/accordion";
-import {CopyButton} from "../../ui/copyButton";
+import { Accordion } from "../../ui/accordion";
+import { CopyButton } from "../../ui/copyButton";
 
 const Gift: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(null);
-
-  // const accounts = [
-  //   {
-  //     id: "uyu",
-  //     title: "Cuenta bancaria en Pesos",
-  //     data: {
-  //       titular: "Carolina Reolon",
-  //       banco: "BROU",
-  //       cuenta: "Caja de Ahorro",
-  //       numero: "001385836-00002",
-  //     },
-  //   },
-  //   {
-  //     id: "usd",
-  //     title: "Cuenta bancaria en Dólares",
-  //     data: {
-  //       titular: "Carolina Reolon",
-  //       banco: "BROU",
-  //       cuenta: "Caja de Ahorro",
-  //       numero: "001385836-00003",
-  //     },
-  //   },
-  //   {
-  //     id: "uyu2",
-  //     title: "Cuenta bancaria en Pesos",
-  //     data: {
-  //       titular: "Juan Pérez",
-  //       banco: "Banco Nación",
-  //       cuenta: "Caja de Ahorro",
-  //       numero: "1234567890",
-  //     },
-  //   },
-  //   {
-  //     id: "usd2",
-  //     title: "Cuenta bancaria en Dólares",
-  //     data: {
-  //       titular: "Juan Pérez",
-  //       banco: "Banco Galicia",
-  //       cuenta: "Caja de Ahorro en USD",
-  //       numero: "0987654321",
-  //     },
-  //   },
-  // ];
 
   const accountsByPerson = [
     {
@@ -84,20 +41,20 @@ const Gift: React.FC = () => {
           id: "mathi-uyu",
           title: "Cuenta en Pesos",
           data: {
-            titular: "Mathias Alcántara",
-            banco: "Banco Nación",
+            titular: "Mathias Lantean",
+            banco: "Banco Itaú",
             cuenta: "Caja de Ahorro",
-            numero: "1234567890",
+            numero: "8593166",
           },
         },
         {
           id: "mathi-usd",
           title: "Cuenta en Dólares",
           data: {
-            titular: "Mathias Alcántara",
-            banco: "Banco Galicia",
-            cuenta: "Caja de Ahorro en USD",
-            numero: "0987654321",
+            titular: "Mathias Lantean",
+            banco: "Banco Itaú",
+            cuenta: "Caja de Ahorro",
+            numero: "1937768",
           },
         },
       ],
@@ -105,10 +62,10 @@ const Gift: React.FC = () => {
   ];
 
   const accountFields = [
-    {label: "Titular:", key: "titular"},
-    {label: "Banco:", key: "banco"},
-    {label: "Cuenta:", key: "cuenta"},
-    {label: "Nº de cuenta:", key: "numero"},
+    { label: "Titular:", key: "titular" },
+    { label: "Banco:", key: "banco" },
+    { label: "Cuenta:", key: "cuenta" },
+    { label: "Nº de cuenta:", key: "numero" },
   ] as const;
 
   return (
