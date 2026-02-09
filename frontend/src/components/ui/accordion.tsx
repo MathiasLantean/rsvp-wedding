@@ -17,7 +17,6 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
           `
           w-full
           rounded-2xl
-          border border-rose-100
           bg-white
           overflow-hidden
           transition-all
@@ -54,15 +53,22 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
         <div
           className={cn(
             `
-            grid
-            transition-[grid-template-rows,opacity]
-            duration-300
-            ease-in-out
-          `,
-            open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+    grid
+    transition-[grid-template-rows]
+    duration-300
+    ease-in-out
+  `,
+            open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
           )}
         >
-          <div className="overflow-hidden px-4 pb-4">{children}</div>
+          <div
+            className={cn(
+              "overflow-hidden px-4 transition-[padding] duration-300",
+              open ? "pb-4" : "pb-0",
+            )}
+          >
+            {children}
+          </div>
         </div>
       </div>
     );

@@ -1,5 +1,4 @@
 import {useState} from "react";
-import {Modal} from "../../ui/modal";
 import "./Gift.css";
 import {Accordion} from "../../ui/accordion";
 import {CopyButton} from "../../ui/copyButton";
@@ -7,46 +6,101 @@ import {CopyButton} from "../../ui/copyButton";
 const Gift: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(null);
 
-  const accounts = [
+  // const accounts = [
+  //   {
+  //     id: "uyu",
+  //     title: "Cuenta bancaria en Pesos",
+  //     data: {
+  //       titular: "Carolina Reolon",
+  //       banco: "BROU",
+  //       cuenta: "Caja de Ahorro",
+  //       numero: "001385836-00002",
+  //     },
+  //   },
+  //   {
+  //     id: "usd",
+  //     title: "Cuenta bancaria en Dólares",
+  //     data: {
+  //       titular: "Carolina Reolon",
+  //       banco: "BROU",
+  //       cuenta: "Caja de Ahorro",
+  //       numero: "001385836-00003",
+  //     },
+  //   },
+  //   {
+  //     id: "uyu2",
+  //     title: "Cuenta bancaria en Pesos",
+  //     data: {
+  //       titular: "Juan Pérez",
+  //       banco: "Banco Nación",
+  //       cuenta: "Caja de Ahorro",
+  //       numero: "1234567890",
+  //     },
+  //   },
+  //   {
+  //     id: "usd2",
+  //     title: "Cuenta bancaria en Dólares",
+  //     data: {
+  //       titular: "Juan Pérez",
+  //       banco: "Banco Galicia",
+  //       cuenta: "Caja de Ahorro en USD",
+  //       numero: "0987654321",
+  //     },
+  //   },
+  // ];
+
+  const accountsByPerson = [
     {
-      id: "uyu",
-      title: "Cuenta bancaria en Pesos",
-      data: {
-        titular: "Carolina Reolon",
-        banco: "BROU",
-        cuenta: "Caja de Ahorro",
-        numero: "001385836-00002",
-      },
+      id: "caro",
+      name: "Caro",
+      accounts: [
+        {
+          id: "caro-uyu",
+          title: "Cuenta en Pesos",
+          data: {
+            titular: "Carolina Reolon",
+            banco: "BROU",
+            cuenta: "Caja de Ahorro",
+            numero: "001385836-00002",
+          },
+        },
+        {
+          id: "caro-usd",
+          title: "Cuenta en Dólares",
+          data: {
+            titular: "Carolina Reolon",
+            banco: "BROU",
+            cuenta: "Caja de Ahorro",
+            numero: "001385836-00003",
+          },
+        },
+      ],
     },
     {
-      id: "usd",
-      title: "Cuenta bancaria en Dólares",
-      data: {
-        titular: "Carolina Reolon",
-        banco: "BROU",
-        cuenta: "Caja de Ahorro",
-        numero: "001385836-00003",
-      },
-    },
-    {
-      id: "uyu2",
-      title: "Cuenta bancaria en Pesos",
-      data: {
-        titular: "Juan Pérez",
-        banco: "Banco Nación",
-        cuenta: "Caja de Ahorro",
-        numero: "1234567890",
-      },
-    },
-    {
-      id: "usd2",
-      title: "Cuenta bancaria en Dólares",
-      data: {
-        titular: "Juan Pérez",
-        banco: "Banco Galicia",
-        cuenta: "Caja de Ahorro en USD",
-        numero: "0987654321",
-      },
+      id: "mathi",
+      name: "Mathi",
+      accounts: [
+        {
+          id: "mathi-uyu",
+          title: "Cuenta en Pesos",
+          data: {
+            titular: "Juan Pérez",
+            banco: "Banco Nación",
+            cuenta: "Caja de Ahorro",
+            numero: "1234567890",
+          },
+        },
+        {
+          id: "mathi-usd",
+          title: "Cuenta en Dólares",
+          data: {
+            titular: "Juan Pérez",
+            banco: "Banco Galicia",
+            cuenta: "Caja de Ahorro en USD",
+            numero: "0987654321",
+          },
+        },
+      ],
     },
   ];
 
@@ -86,44 +140,39 @@ const Gift: React.FC = () => {
             </p>
           </div>
 
-          {accounts.map((account) => (
-            <Accordion
-              key={account.id}
-              title={account.title}
-              open={openId === account.id}
-              onToggle={() =>
-                setOpenId(openId === account.id ? null : account.id)
-              }
-            >
-              {accountFields.map((field) => {
-                const value = account.data[field.key];
+          <div className="gift-accounts-grid">
+            {accountsByPerson.map((person) => (
+              <div key={person.id} className="gift-person-column">
+                <h3 className="gift-person-title">{person.name}</h3>
 
-                return (
-                  <div
-                    key={field.key}
-                    className="
-        flex items-start justify-between
-        gap-3
-        py-2
-        border-b last:border-b-0
-        border-gray-100
-      "
+                {person.accounts.map((account) => (
+                  <Accordion
+                    key={account.id}
+                    title={account.title}
+                    open={openId === account.id}
+                    onToggle={() =>
+                      setOpenId(openId === account.id ? null : account.id)
+                    }
                   >
-                    <div className="flex flex-col">
-                      <span className="text-xs text-gray-500">
-                        {field.label}
-                      </span>
-                      <span className="text-sm font-medium text-[var(--wedding-navy-dark)]">
-                        {value}
-                      </span>
-                    </div>
-
-                    <CopyButton value={value} />
-                  </div>
-                );
-              })}
-            </Accordion>
-          ))}
+                    {accountFields.map((field) => {
+                      const value = account.data[field.key];
+                      return (
+                        <div key={field.key} className="gift-account">
+                          <div className="gift-account-text">
+                            <span className="gift-account-label">
+                              {field.label}
+                            </span>
+                            <span className="gift-account-value">{value}</span>
+                          </div>
+                          <CopyButton value={value} />
+                        </div>
+                      );
+                    })}
+                  </Accordion>
+                ))}
+              </div>
+            ))}
+          </div>
 
           <p className="gift-thanks-text">
             Gracias por ser parte de nuestra historia 💖
