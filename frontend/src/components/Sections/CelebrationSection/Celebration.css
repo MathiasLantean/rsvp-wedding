@@ -1,6 +1,6 @@
 .celebration-section {
   position: relative;
-  height: 630px;
+  height: 620px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -11,6 +11,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-bottom: 32px;
 }
 
 .celebration-content {
@@ -55,11 +56,37 @@
   margin-bottom: 48px;
 }
 
+.location-icon-link {
+  margin-bottom: 12px;
+  color: var(--wedding-rose-gold);
+  border-radius: 9999px;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.location-icon-link:hover {
+  color: var(--wedding-rose-dark);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.location-icon-link:focus-visible {
+  outline: 2px solid var(--wedding-rose-dark);
+  outline-offset: 2px;
+}
+
+.location-icon-link svg {
+  width: 28px;
+  height: 28px;
+}
+
 @media (max-width: 640px) {
   .celebration-section {
     background-image: none;
     background-image: url("/src/assets/dress-code-mobile.png");
     height: 620px;
+    background-size: contain;
   }
 
   .celebration-content {

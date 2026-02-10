@@ -9,12 +9,13 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   ({open, onClose, className, children, ...props}, ref) => {
-    // 🔒 Bloquear scroll del fondo
     React.useEffect(() => {
       if (open) {
         document.body.style.overflow = "hidden";
+        document.body.style.overscrollBehavior = "none";
       } else {
         document.body.style.overflow = "";
+        document.body.style.overscrollBehavior = "";
       }
 
       return () => {
@@ -25,13 +26,13 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     if (!open) return null;
 
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center">
         {/* Backdrop rosa */}
         <div
-          className="absolute inset-0  backdrop-blur-sm"
+          className="absolute inset-0"
           style={{
             backgroundColor:
-              "color-mix(in srgb, var(--wedding-rose-dark) 50%, transparent)",
+              "color-mix(in srgb, var(--wedding-rose-dark) 70%, transparent)",
           }}
           onClick={onClose}
         />
@@ -42,10 +43,13 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
           className={cn(
             `
     relative
+    z-[9999]
     flex flex-col
     bg-white
     text-wedding-navy-dark
     overflow-hidden
+    opacity-100 
+    isolation-isolate
 
     /* Desktop */
     w-[92%] max-w-md
@@ -59,6 +63,8 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     max-md:w-screen
     max-md:h-[100dvh]
     max-md:rounded-none
+    max-md:top-0
+
   `,
             className,
           )}
@@ -70,7 +76,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
             onClick={onClose}
             aria-label="Cerrar"
             className="
-    absolute top-6 right-6
+    absolute top-8 right-3
     flex items-center justify-center
     w-9 h-9
     rounded-full
@@ -78,11 +84,8 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     transition-all duration-200
     hover:scale-105
 
-    max-md:right-2
+    max-md:right-3
   "
-            style={{
-              backgroundColor: "transparent",
-            }}
             onMouseEnter={(e) =>
               (e.currentTarget.style.backgroundColor =
                 "color-mix(in srgb, var(--wedding-navy-dark) 15%, transparent)")
@@ -94,7 +97,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
             ✕
           </button>
 
-          <div className="h-full overflow-y-auto px-4 py-8 max-md:px-3">
+          <div className="h-full overflow-y-auto px-6 py-8 max-md:px-3">
             {children}
           </div>
         </div>

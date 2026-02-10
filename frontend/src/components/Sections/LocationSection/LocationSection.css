@@ -1,7 +1,7 @@
 .map-wrapper {
   position: relative;
-  width: 50%;
-  height: 300px;
+  width: 70%;
+  height: 600px;
 }
 
 .map-wrapper iframe {
@@ -18,9 +18,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(200, 168, 175, 0.45); /* rosa viejo */
+  background: rgba(200, 168, 175, 0.45);
   pointer-events: none; /* permite interactuar con el mapa */
-  z-index: 2;
+  z-index: 1;
 }
 
 .location-container {
@@ -33,35 +33,54 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  width: 160px;
+  align-items: center;
+  width: 30%;
   margin: 0 auto;
   color: var(--wedding-navy-dark);
+
+  position: relative;
+  background-image: url("/src/assets/location-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .location-title {
   font-family: var(--font-cursive);
   font-size: 4rem;
-  color: var(--color-gold);
+  color: var(--wedding-navy-dark);
   line-height: normal;
+}
+
+.location-icon-link {
+  color: var(--wedding-navy-dark);
+}
+
+.location-icon-link:hover {
+  color: var(--wedding-navy-light);
 }
 
 .location-text {
   font-family: var(--font-display);
-  text-align: left;
+  text-align: center;
   font-size: 0.875rem;
 }
 
-.location-text-container {
-  margin-bottom: 16px;
-  text-align: left;
+.location-punctual {
+  color: var(--wedding-navy-light);
+  font-weight: 700;
 }
 
-.button-search {
+.location-text-container {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.location-button-search {
   padding: 0.5rem 2rem;
   border-radius: 9999px;
-  color: var(--wedding-navy-dark);
-  color: white;
+  background-color: var(--wedding-navy-dark);
+  color: var(--wedding-rose-gold);
   font-size: 0.75rem;
   font-weight: 500;
   font-family: var(--font-display);
@@ -69,8 +88,8 @@
   cursor: pointer;
 }
 
-.button-search:hover {
-  background-color: var(--wedding-navy-dark);
+.location-button-search:hover {
+  background-color: var(--wedding-navy-light);
 }
 
 @media (max-width: 768px) {
@@ -96,6 +115,6 @@
 
   .map-wrapper {
     width: 100%;
-    height: 260px;
+    height: 325px;
   }
 }

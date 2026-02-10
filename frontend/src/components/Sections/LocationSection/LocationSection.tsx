@@ -1,3 +1,4 @@
+import {MapPin} from "lucide-react";
 import "./LocationSection.css";
 
 const LocationSection: React.FC = () => {
@@ -11,16 +12,29 @@ const LocationSection: React.FC = () => {
     <div className="location-container">
       <div className="location-title-container">
         <h2 className="location-title">Ubicación</h2>
+        <a
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="location-icon-link"
+          aria-label="Abrir ubicación en Google Maps"
+        >
+          <MapPin />
+        </a>
         <div className="location-text-container">
           <p className="location-text">LOS TILOS</p>
           <p className="location-text">Cno. del Tropero 4750</p>
           <p className="location-text">Montevideo, Uruguay</p>
+          <p className="location-text mt-4">
+            18:00 hs{" "}
+            <span className="location-punctual">· comienza puntual ·</span>
+          </p>
         </div>
         <a
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="button-search"
+          className="location-button-search"
         >
           Cómo llegar
         </a>
