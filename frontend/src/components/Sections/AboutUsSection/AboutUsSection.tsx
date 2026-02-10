@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import "./AboutUsSection.css";
-import {Heart} from "lucide-react";
+import { Heart } from "lucide-react";
 
 export default function AboutUsSection() {
   const [side, setSide] = useState<"left" | "right">("left");
@@ -31,11 +31,11 @@ export default function AboutUsSection() {
       name: "Caro",
       author: "— Mathi",
       quotes: [
-        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
-        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
-        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
-        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
-        "Mathi ponete las pilas y escribí algo. Porque necesito ver cómo se muestra el texto.",
+        "“Caro es mi cómplice más genuina, mi aliada en todo, es mi lugar seguro en el mundo, mi refugio. Muchas veces despierto a su lado, la observo en silencio y en ese instante entiendo cuánto la admiro.",
+        "Ella siempre está atenta, sabe exactamente lo que quiero o lo que necesito. Pero, sobre todo, me cuida, me mima, me escucha y me entiende más que nadie. A veces con humor, a veces con firmeza, siempre busca sacar lo mejor de mí.",
+        "Su sinceridad, su cariño, sus ideas, sus consejos y su sonrisa dicen mucho de la persona tan bonita que es. En ella todo es real, todo es hermoso.",
+        "Me enseñó a disfrutar los momentos cotidianos, a ver lo bonito de las cosas simples y hasta a amar a los animales.",
+        "Con ella aprendí a construir desde la calma, desde el amor. Con ella entendí que quiero una vida a su lado.”",
       ],
     },
   } as const;
@@ -65,31 +65,28 @@ export default function AboutUsSection() {
             <button
               type="button"
               aria-label="Option Mathi"
-              className={`heart-button ${
-                side === "left"
-                  ? "heart-active heart-navy"
-                  : "heart-inactive heart-navy"
-              }`}
+              className={`heart-button ${side === "left"
+                ? "heart-active heart-navy"
+                : "heart-inactive heart-navy"
+                }`}
               onClick={() => setSide("left")}
             >
               <Heart />
               <span className="heart-label">MATHI</span>
             </button>
             <h2
-              className={`mobile-title-section ${
-                side === "left" ? "is-navy" : "is-rose"
-              }`}
+              className={`mobile-title-section ${side === "left" ? "is-navy" : "is-rose"
+                }`}
             >
               Nosotros
             </h2>
             <button
               type="button"
               aria-label="Option Caro"
-              className={`heart-button ${
-                side === "right"
-                  ? "heart-active heart-rose"
-                  : "heart-inactive heart-rose"
-              }`}
+              className={`heart-button ${side === "right"
+                ? "heart-active heart-rose"
+                : "heart-inactive heart-rose"
+                }`}
               onClick={() => setSide("right")}
             >
               <Heart />
