@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer-contact-caro">
           <p>CARO </p>
           <p>+598 98 671 598</p>
-          <p>garolinareolon@gmail.com</p>
+          <p>carolinareolon@gmail.com</p>
         </div>
         <p className="footer-title">
           Nuestro para siempre comienza desde este día en adelante
