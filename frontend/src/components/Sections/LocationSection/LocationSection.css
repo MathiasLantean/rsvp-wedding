@@ -66,6 +66,11 @@
   font-size: 0.875rem;
 }
 
+.location-text-hora {
+  margin-top: 1rem;
+  color: var(--wedding-navy-light);
+}
+
 .location-punctual {
   color: var(--wedding-navy-light);
   font-weight: 700;

@@ -25,8 +25,11 @@ const LocationSection: React.FC = () => {
           <p className="location-text">LOS TILOS</p>
           <p className="location-text">Cno. del Tropero 4750</p>
           <p className="location-text">Montevideo, Uruguay</p>
-          <p className="location-text mt-4">
+          <p className="location-text-hora mt-4">
             18:00 hs{" "}
+          </p>
+          <p className="location-text">
+            Ceremonia - 18:30 hs{" "}
             <span className="location-punctual">· comienza puntual ·</span>
           </p>
         </div>

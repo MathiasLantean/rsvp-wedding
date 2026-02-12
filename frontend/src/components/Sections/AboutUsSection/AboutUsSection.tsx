@@ -20,11 +20,11 @@ export default function AboutUsSection() {
       name: "Mathi",
       author: "— Caro",
       quotes: [
-        "“Mathi es un compañero increíble. Está ahí de verdad: presente, involucrado y con una forma muy genuina de acompañar. Siempre busca entender a quienes lo rodean y tiene una manera muy linda de cuidar a las personas que quiere.”",
-        "Es súper inteligente y astuto: siempre le busca la vuelta a los problemas y encuentra soluciones donde otros ven obstáculos. Es un gran profesional, muy curioso con las nuevas tecnologías y siempre atento a lo que pasa a su alrededor.",
-        "Tiene un humor hermoso. Es divertido y siempre logra sacarme una sonrisa, incluso en mis días más grises.",
-        "Está en un camino constante de crecimiento personal. Siempre intenta ser una mejor persona, y esa búsqueda es contagiosa: me inspira a mí también a crecer y a caminar juntos, acompañándonos en el proceso.",
-        "Es mi lugar seguro y me trae mucha paz.”",
+        "“Mathi es el mejor compañero que podría pedir, siempre tiene la palabra o el abrazo justo que necesito. Me sigue en todos los planes y locuras que se me ocurren. Siento que juntos nos complementamos muy bien en el día a día; su calma me ayuda a regularme y a mantener los pies en la tierra.",
+        "Una de las cosas que me enamoró de él, fue esa chispa que tiene para encontrarle la vuelta a todo. Donde otros ven problemas, él ve soluciones. Siempre atento a lo que pasa en el mundo, su curiosidad hace que cada día tenga algo nuevo e interesante para compartir conmigo. ",
+        "Tiene un humor hermoso: es divertido, cómplice y siempre logra sacarme una sonrisa, incluso en mis días más grises.",
+        "Está en un camino constante de crecimiento. Su deseo de ser mejor persona me contagia y me invita a crecer con él, a caminar juntos y a acompañarnos en cada etapa del proceso.",
+        "Es mi lugar seguro y me trae mucha paz.",
       ],
     },
     right: {

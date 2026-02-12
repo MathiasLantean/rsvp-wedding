@@ -256,7 +256,7 @@ const RSVP: React.FC<RSVPProps> = ({onConfirmAttendance}) => {
                             value={guest.notes}
                             onChange={(e) =>
                               updateGuest(guest.name, {
-                                notes: `otra: ${e.target.value}`,
+                                notes: `${e.target.value}`,
                               })
                             }
                           />
