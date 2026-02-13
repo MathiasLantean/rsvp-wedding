@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./AboutUsSection.css";
 import { Heart } from "lucide-react";
 
 export default function AboutUsSection() {
   const [side, setSide] = useState<"left" | "right">("left");
   const [isMobile, setIsMobile] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const desktopSectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -12,6 +14,75 @@ export default function AboutUsSection() {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  useEffect(() => {
+    if (!isMobile || !sectionRef.current) return;
+
+    const handleScroll = () => {
+      const section = sectionRef.current;
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const viewportCenter = window.innerHeight / 2;
+      const sectionCenter = rect.top + rect.height / 2;
+      
+      // Check if section center is at or past the viewport center
+      const isAtMiddle = sectionCenter <= viewportCenter;
+      
+      // Switch to second tab (right) when section reaches middle
+      // Switch back to first tab (left) when scrolling up (section above middle)
+      setSide((currentSide) => {
+        if (isAtMiddle && currentSide === "left") {
+          return "right";
+        } else if (!isAtMiddle && currentSide === "right") {
+          return "left";
+        }
+        return currentSide;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Check initial position
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMobile]);
+
+  // Scroll-based tab switching for desktop/web
+  useEffect(() => {
+    if (isMobile || !desktopSectionRef.current) return;
+
+    const handleScroll = () => {
+      const section = desktopSectionRef.current;
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const viewportCenter = window.innerHeight / 2;
+      const sectionCenter = rect.top + rect.height / 2;
+      
+      // Check if section center is at or past the viewport center
+      const isAtMiddle = sectionCenter <= viewportCenter;
+      
+      // Switch to second tab (right) when section reaches middle
+      // Switch back to first tab (left) when scrolling up (section above middle)
+      setSide((currentSide) => {
+        if (isAtMiddle && currentSide === "left") {
+          return "right";
+        } else if (!isAtMiddle && currentSide === "right") {
+          return "left";
+        }
+        return currentSide;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Check initial position
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMobile]);
 
   const isLeft = side === "left";
 
@@ -44,7 +115,7 @@ export default function AboutUsSection() {
 
   if (isMobile) {
     return (
-      <section className="split-container mobile">
+      <section ref={sectionRef} className="split-container mobile">
         <div className={`banner banner-left ${isLeft ? "active" : ""}`} />
         <div className={`banner banner-right ${!isLeft ? "active" : ""}`} />
 
@@ -99,16 +170,9 @@ export default function AboutUsSection() {
   }
 
   return (
-    <section className="split-container">
+    <section ref={desktopSectionRef} className="split-container">
       <div className={`banner banner-left ${isLeft ? "active" : ""}`} />
       <div className={`banner banner-right ${!isLeft ? "active" : ""}`} />
-      {(["left", "right"] as const).map((s) => (
-        <div
-          key={s}
-          className={`hover-zone ${s}`}
-          onMouseEnter={() => setSide(s)}
-        />
-      ))}
       <div className={`overlay testimonial ${isLeft ? "right" : "left"}`}>
         <h2>{content.name}</h2>
         {content.quotes.map((quote, i) => (
