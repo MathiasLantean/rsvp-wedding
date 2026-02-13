@@ -1,4 +1,7 @@
-from fastapi import FastAPI, HTTPException, status
+import csv
+import io
+import re
+from fastapi import FastAPI, HTTPException, status, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 from . import schemas, crud
@@ -56,6 +59,40 @@ def add_guest(payload: schemas.CreateGuestRequest):
         phone=payload.phone,
         guests=guests,
     )
+
+
+@app.post("/guests/upload")
+def upload_guests(file: UploadFile = File(...)):
+    content = file.file.read().decode("utf-8")
+    csv_reader = csv.reader(io.StringIO(content))
+    
+    items = []
+    for row in csv_reader:
+        if not row:
+            continue
+            
+        principal_name = row[0].strip()
+        companions_text = row[2]
+        phone_raw = row[3]
+        
+        companion_names = [name.strip() for name in companions_text.splitlines() if name.strip()]
+        
+        phone = re.sub(r"[^0-9+]", "", phone_raw)
+        
+        guests = [schemas.Guest(name=principal_name, attending=None, notes=None)]
+        for name in companion_names:
+            guests.append(schemas.Guest(name=name, attending=None, notes=None))
+            
+        item = {
+            "phone": phone,
+            "guests": [guest.model_dump() for guest in guests],
+            "message": None
+        }
+        items.append(item)
+        
+    count = crud.batch_create_guests(items)
+    return {"message": f"Successfully uploaded {count} guest groups"}
+
 
 @app.get("/guests", response_model=list[schemas.GuestGroupResponse])
 def list_guests():

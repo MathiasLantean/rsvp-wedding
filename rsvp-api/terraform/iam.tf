@@ -32,7 +32,8 @@ resource "aws_iam_role_policy" "dynamodb" {
           "dynamodb:GetItem",
           "dynamodb:PutItem",
           "dynamodb:UpdateItem",
-          "dynamodb:Scan"
+          "dynamodb:Scan",
+          "dynamodb:BatchWriteItem"
         ]
         Resource = aws_dynamodb_table.rsvp.arn
       }

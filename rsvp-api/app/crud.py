@@ -35,3 +35,9 @@ def confirm_attendance(phone: str, guests: list[Guest], message: str | None):
 
     return response.get("Attributes")
 
+
+def batch_create_guests(items: List[dict]):
+    with table.batch_writer() as batch:
+        for item in items:
+            batch.put_item(Item=item)
+    return len(items)
