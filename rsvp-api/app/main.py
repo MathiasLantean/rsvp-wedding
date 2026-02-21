@@ -1,7 +1,7 @@
 import csv
 import io
 import re
-from fastapi import FastAPI, HTTPException, status, UploadFile, File
+from fastapi import FastAPI, HTTPException, status, UploadFile, File, Response
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 from . import schemas, crud
@@ -97,5 +97,42 @@ def upload_guests(file: UploadFile = File(...)):
 @app.get("/guests", response_model=list[schemas.GuestGroupResponse])
 def list_guests():
     return crud.list_guests()
+
+
+@app.get("/guests/download")
+def download_guests():
+    guest_groups = crud.list_guests()
+    
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["Name", "Attending", "Notes", "Message", "Phone"])
+    
+    for group in guest_groups:
+        phone = group.get("phone", "")
+        message = group.get("message", "") or ""
+        guests = group.get("guests", [])
+        
+        for index, guest in enumerate(guests):
+            name = guest.get("name", "")
+            attending = guest.get("attending")
+            notes = guest.get("notes", "") or ""
+            
+            if attending is True:
+                attending_str = "Yes"
+            elif attending is False:
+                attending_str = "No"
+            else:
+                attending_str = "Pending"
+                
+            if index == 0:
+                writer.writerow([name, attending_str, notes, message, phone])
+            else:
+                writer.writerow([name, attending_str, notes, "", ""])
+                
+    return Response(
+        content=output.getvalue(),
+        media_type="text/csv",
+        headers={"Content-Disposition": "attachment; filename=guests.csv"}
+    )
 
 handler = Mangum(app)
